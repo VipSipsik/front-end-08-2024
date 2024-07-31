@@ -16,7 +16,7 @@ function App() {
 function sisesta() {
   if (isikRef.current.value ===""){
     muudaSonum("Tühja nime ei saa sisestada!")
-    return; // ära enam siit edasi mine
+    return; // ära enam siit edasi mine test
   }
 
   if (isikRef.current.value.includes ("%")) {

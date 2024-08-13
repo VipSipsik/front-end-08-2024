@@ -12,8 +12,10 @@
 .main-picture {
   height: 200px;
   width: 50%;
-  margin-left: 25%;
+  /* margin-left: 25%; */
+  margin: auto;
   border-radius: 10px;
+  opacity: 80%;
 }
 
 .navigation-pictures {
@@ -26,12 +28,15 @@
   height: 150px;
   width: 250px;
   cursor: pointer;
+  
 }
 
 .navigation-pictures img:hover {
   scale: 1.1;
-  transition: 0.5s;
+  transition: 0.2s;
   box-shadow: 0 8px 100px 0px;
+  transform: scale(1.0); 
+  cursor: pointer;
 }
 .main-link {
   color: rgb(66, 18, 18);
@@ -44,4 +49,28 @@
   text-align: center;
   text-decoration: none;
   font-family: 'roboto';
+
+  /* Justify-content: space-between; */
+  /* Justify-content: space-around; */
+
+  /* Padding  lükatakse selle elemendi sisemust sissepoole. Kui on 1 väärtus, siis igas suunas, kui on kaks väärtust, siis esimene väärtus on üles-alla ja teine väärtus vasakule-paremale, kui on neli väärtust, siis on üles-paremale-alla-vasakule (nagu kell). */
 }
+
+.facebook-button img {
+  height: 30px;
+  padding: 5px 10px;
+}
+
+.facebook-button span {
+  position: relative;
+  top: -15px;
+  height: 30px;
+  color: darkblue;
+}
+
+.facebook-button:hover {
+  color: #7ba9c3;
+  cursor: pointer;
+
+}
+

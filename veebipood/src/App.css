@@ -32,3 +32,34 @@
 .nupp:active {
   text-decoration: underline;
 }
+
+.kuldne {
+  color: goldenrod;
+}
+
+.linn-aktiivne {
+  font-weight: bold;
+}
+
+.linn, .linn-aktiivne {
+  font-size: 20px;
+}
+
+
+.summa-aktiivne{
+  color: rgb(247, 68, 97);
+  border-color: rgb(247, 68, 97);
+}
+
+.summa, .summa-aktiivne {
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.keel-aktiivne {
+  text-decoration: underline;
+}

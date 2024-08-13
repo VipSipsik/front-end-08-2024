@@ -66,6 +66,12 @@
   top: -15px;
   height: 30px;
   color: darkblue;
+  text-decoration: none;
+
+}
+
+a {
+  text-decoration: none;
 }
 
 .facebook-button:hover {

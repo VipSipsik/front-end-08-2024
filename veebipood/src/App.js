@@ -9,6 +9,7 @@ import Ostukorv from './pages/Ostukorv';
 import NotFound from './pages/NotFound';
 import Menyy from './components/Menyy';
 import Seaded from './pages/Seaded';
+import Profiil from './pages/Profiil';
 
 // kui on võimalus importida mitu asja, siis on {}
 // kui on võimalus importida ainult ühte asja, siis on ilma {}
@@ -30,6 +31,7 @@ function App() {
         <Route path='lisa-toode' element={ <LisaToode /> } />
         <Route path='ostukorv' element={ <Ostukorv /> } />
         <Route path='seaded' element={ <Seaded /> } />
+        <Route path='profiil' element={ <Profiil /> } />
         <Route path='*' element={ <NotFound /> } />
       </Routes>
 

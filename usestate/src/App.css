@@ -15,3 +15,56 @@
   border: 2px solid purple;
 }
 
+.must-ring {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.kuldne-ring {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: goldenrod;
+}
+
+.sinine-ring {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.punane-ring {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.lilla-ring {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: purple;
+}
+
+.aktiivne {
+  text-decoration: underline;
+  font-weight: bold;
+  background-color: black;
+  color: aquamarine;
+}
+
+.mitte-aktiivne {
+  text-decoration: none;
+  font-weight: lighter;
+  background-color: rgb(79, 82, 77);
+  color: white;
+}
+
+
+
+
+

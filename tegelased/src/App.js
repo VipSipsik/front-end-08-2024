@@ -13,11 +13,11 @@ function App() {
       </Link>
 
       <Link to="/lisa-tegelane">
-       <button>Avalehele</button>
+       <button>Lisa tegelane</button>
       </Link>
 
       <Link to="/valitud-tegelased">
-       <button>Avalehele</button>
+       <button>Valitud tegelased</button>
       </Link>
 
       <Routes>

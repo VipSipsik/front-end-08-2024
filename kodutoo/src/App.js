@@ -4,6 +4,7 @@ import Kontakt from './pages/Kontakt';
 import Avaleht from './pages/Avaleht';
 import Meist from './pages/Meist';
 import Seaded from './pages/Seaded';
+import Leht from './pages/Leht';
 import { useRef, useState } from 'react';
 
 function App() {
@@ -59,12 +60,17 @@ const logiValja = () => {
       <Link to="/seaded">
         <button>Seadetesse</button>
       </Link>
+
+      <Link to="/leht">
+        <button>Leht</button>
+      </Link>
     
       <Routes>
         <Route path="" element={ <Avaleht /> } />
         <Route path="kontakt" element={ <Kontakt /> } />
         <Route path="meist" element={ <Meist /> } />
         <Route path="seaded" element={ <Seaded /> } />
+        <Route path="leht" element={ <Leht /> } />
       </Routes>
     </div>
   );

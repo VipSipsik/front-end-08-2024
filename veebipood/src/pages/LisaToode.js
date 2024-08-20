@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
 
 function LisaToode() {
     const [sonum, muudaSonum] = useState("Lisa juurde üks toode");
@@ -11,8 +12,10 @@ function LisaToode() {
 
       if (nimiRef.current.value === "") {
         muudaSonum("Tühja nimega toodet ei saa lisada!");
+        toast.error("Tühja nimega toodet ei saa lisada!");
       } else {
         muudaSonum("Toode lisatud: " + nimiRef.current.value);
+        toast.success("Ostukorvi lisatud!");
       }
     }
     
@@ -22,6 +25,12 @@ function LisaToode() {
         <label>Toote nimi</label> <br />
         <input ref={nimiRef} type="text" /> <br />
         <button onClick={sisesta}>Sisesta</button> <br />
+
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          theme="dark"
+        />
     </div>
   )
 }

@@ -7,6 +7,7 @@ import Seaded from './pages/Seaded';
 import Leht from './pages/Leht';
 import Loader from './pages/Loader';
 import { useRef, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   const [sisselogitud, muudaSisselogitud] = useState("ei");
@@ -15,13 +16,17 @@ function App() {
   const paroolRef = useRef();
 
   const logiSisse = () => {
-  if (paroolRef.current.value === "123") {
+  if (paroolRef.current.value === "123"){
     muudaSisselogitud("jah");
-    muudaSonum(kasutajaNimiRef.current.value + " Mirjam ,Oled sisselogitud");
-  } else {
+    muudaSonum(kasutajaNimiRef.current.value + " Mirjam ,Oled sisselogitud!");
+    toast.success("Sõnum");
+    toast.error("Sõnum");
     muudaSonum("Vale parool");
+   return; 
   }
 }
+ 
+
 
 const logiValja = () => {
   muudaSisselogitud("ei");
@@ -42,6 +47,12 @@ const logiValja = () => {
       { sisselogitud === "ei" && <button onClick={logiSisse}>Logi sisse</button>}
       { sisselogitud === "jah" && <button onClick={logiValja}  >Logi välja</button>}
       <br /><br />
+
+      <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          theme="dark"
+        />
 
 
       <div>--SIIN ON VARASEM KODUTÖÖ--</div>

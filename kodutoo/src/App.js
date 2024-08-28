@@ -14,18 +14,35 @@ function App() {
   const [sonum, muudaSonum] = useState("");
   const kasutajaNimiRef = useRef();
   const paroolRef = useRef();
-
   const logiSisse = () => {
-  if (paroolRef.current.value === "123"){
-    muudaSisselogitud("jah");
-    muudaSonum(kasutajaNimiRef.current.value + " Mirjam ,Oled sisselogitud!");
-    toast.success("Sõnum");
-    toast.error("Sõnum");
-    muudaSonum("Vale parool");
-   return; 
-  }
-}
+ // if (paroolRef.current.value === "123"){
+ //   muudaSisselogitud("jah");
+ //   muudaSonum(kasutajaNimiRef.current.value + " Mirjam ,Oled sisselogitud!");
+ //   toast.success("Sõnum");
+ //   return;
+ // }
+ // toast.error("Sõnum");
+ // muudaSonum("Vale parool");
+  const parool = paroolRef.current.value;
  
+  if (parool.length < 8) {
+    toast.error("Parool peab olema vähemalt 8 tähepärki");
+    return;
+  }
+
+  if (parool === parool.toLowerCase()) {
+    toast.error("Paroolis peab olema vähemalt üks SUUR tähemärk");
+    return;
+  }
+
+  if (parool.includes("%") !== true){ // Alternatiiv condition !parool.includes("%")
+    toast.error("Parool peab sisaldama %");
+    return;
+  }
+
+  toast.success("Sisselogitud");
+  return;
+  } 
 
 
 const logiValja = () => {

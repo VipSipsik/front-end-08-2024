@@ -46,10 +46,27 @@ function Menyy() {
     <Link to="tooted">
       <button className="nupp">Tooted</button>
     </Link>
-    <Link to="töötajad">
-      <button className="nupp">Töötajad</button>
+    <Link to="tootajad">
+      <button className="nupp">Tootajad</button>
     </Link>
     
+
+    <Link to="halda-esindusi">
+      <button className="nupp">Halda esindusi</button>
+    </Link>
+
+    <Link to="halda-hindu">
+      <button className="nupp">Halda hindu</button>
+    </Link>
+
+    <Link to="halda-tootajaid">
+      <button className="nupp">Halda tootajaid</button>
+    </Link>
+
+    <Link to="Halda-tooteid">
+      <button className="nupp">Halda tooteid</button>
+    </Link>
+
     </div>
 
     

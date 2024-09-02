@@ -14,7 +14,12 @@ import LogiSisse from './pages/useref/LogiSisse';
 import Registreeru from './pages/useref/Registreeru';
 import Hinnad from './pages/arrays/Hinnad';
 import Tooted from './pages/arrays/Tooted';
-import Töötajad from './pages/arrays/Töötajad';
+import Tootajad from './pages/arrays/Tootajad';
+
+import HaldaEsindusi from './pages/halda/HaldaEsindusi';
+import HaldaHindu from './pages/halda/HaldaHindu';
+import HaldaTootajaid from './pages/halda/HaldaTootajaid';
+import HaldaTooteid from './pages/halda/HaldaTooteid';
 
 // kui on võimalus importida mitu asja, siis on {}
 // kui on võimalus importida ainult ühte asja, siis on ilma {}
@@ -41,8 +46,13 @@ function App() {
         <Route path='registreeru' element={ <Registreeru /> } />
         <Route path='hinnad' element={ <Hinnad /> } />
         <Route path='tooted' element={ <Tooted /> } />
-        <Route path='töötajad' element={ <Töötajad /> } />
+        <Route path='tootajad' element={ <Tootajad /> } />
         <Route path='*' element={ <NotFound /> } />
+
+        <Route path='halda-esindusi' element={ <HaldaEsindusi/> } />
+        <Route path='halda-hindu' element={ <HaldaHindu /> } />
+        <Route path='halda-tootajaid' element={ <HaldaTootajaid /> } />
+        <Route path='halda-tooteid' element={ <HaldaTooteid /> } />
       </Routes>
 
       {/* FOOTER */}

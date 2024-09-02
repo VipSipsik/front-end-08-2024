@@ -8,6 +8,9 @@ import Leht from './pages/Leht';
 import Loader from './pages/Loader';
 import { useRef, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import Months from './pages/months';
+import Animals from './pages/animals';
+import Words from './pages/words';
 
 function App() {
   const [sisselogitud, muudaSisselogitud] = useState("ei");
@@ -97,6 +100,18 @@ const logiValja = () => {
       <Link to="/loader">
         <button>Loader</button>
       </Link>
+
+      <Link to="/months">
+        <button>Months</button>
+      </Link>
+
+      <Link to="/animals">
+        <button>Animals</button>
+      </Link>
+
+      <Link to="/words">
+        <button>Words</button>
+      </Link>
     
       <Routes>
         <Route path="" element={ <Avaleht /> } />
@@ -105,6 +120,9 @@ const logiValja = () => {
         <Route path="seaded" element={ <Seaded /> } />
         <Route path="leht" element={ <Leht /> } />
         <Route path="loader" element={ <Loader /> } />
+        <Route path="months" element={ <Months /> } />
+        <Route path="animals" element={ <Animals /> } />
+        <Route path="words" element={ <Words /> } />
       </Routes>
     </div>
   );

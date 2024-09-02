@@ -1,13 +1,17 @@
 import React, { useRef, useState } from 'react'
-
+import hinnadFailist from "../../data/hinnad.json";
 
 function Hinnad() {
 
-  const [hinnad, muudaHinnad] = useState ([5, 99, 42, 8, 491, 71, 123, 321, 2120, 33])
+  const [hinnad, muudaHinnad] = useState (hinnadFailist.slice());
   const hindRef = useRef();
   // mitu tk välja näitatakse
   // tühjendamine
   // kui on tühi, siis anna sõnumiga teada, et ühtegi pole
+
+  const reset = () => {
+    muudaHinnad(hinnadFailist.slice());
+  }
 
   const lisaLoppu656 = () => {
     hinnad.push(656);
@@ -29,11 +33,47 @@ function Hinnad() {
     muudaHinnad(hinnad.slice());
   }
 
+  const sorteeriKasvavalt = () => {
+    hinnad.sort((a, b) => a - b);
+    muudaHinnad(hinnad.slice());
+  }
+
+  const sorteeriKahanevalt = () => {
+    hinnad.sort((a, b) => b - a);
+    muudaHinnad(hinnad.slice());
+  }
+
+  const sorteeriAZ = () => {
+    hinnad.sort();
+    muudaHinnad(hinnad.slice());
+  }
+
+  const filtreeriSuuremadKui100 = () => {
+    const vastus = hinnadFailist.filter(hind => hind > 100 );
+    muudaHinnad(vastus);
+  }
+
+  const filtreeriVäiksemadKui50 = () => {
+    const vastus = hinnadFailist.filter(hind => hind < 50 );
+    muudaHinnad(vastus);
+  }
+
+  const filtreeri1SisaldavadNumbrid = () => {
+    const vastus = hinnadFailist.filter(hind => String(hind).includes("1") );
+    muudaHinnad(vastus);
+  }
+
   return (
     <div>
+      <br /><br />
+      <button onClick={reset}>Reset</button>
+      <br /><br />
       <label>Hind</label> <br />
       <input ref={hindRef} type="number" /> <br />
       <button onClick={lisaVormist}>Sisesta</button>
+      <br /><br />
+
+      
 
       <br /><br />
       <button onClick={() => kustuta(0)}>Kustuta esimene</button>
@@ -48,6 +88,20 @@ function Hinnad() {
       {hinnad.length === 0 && <div>Ühtegi hinda pole!</div>}
       
       <button onClick={lisaLoppu656}>Lisa lõppu 656</button>
+
+      <br /><br />
+
+      
+      <button onClick={sorteeriKasvavalt}>Sorteeri kasvavalt</button>
+      <button onClick={sorteeriKahanevalt}>Sorteeri kahanevalt</button>
+      <button onClick={sorteeriAZ}>Sorteeri A-Z</button>
+
+      <br /><br />
+      
+      <button onClick={filtreeriSuuremadKui100}>Filtreeri suuremad kui 100</button>
+      <button onClick={filtreeriVäiksemadKui50}>Filtreeri väiksemad kui 50</button>
+      <button onClick={filtreeri1SisaldavadNumbrid}>Filtreeri 1 sisaldavad numbrid</button>
+
 
       <br /><br />
       {hinnad.map(hind => <button onClick={() => lisa(hind)}>{hind}</button>)}

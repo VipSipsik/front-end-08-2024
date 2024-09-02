@@ -5,24 +5,24 @@ function App() {
   const [kogus, muudaKogus] = useState(5);
   const [teade, muudaTeade] = useState("Tere");
   const [vanus, muudaVanus] = useState(65);
-  const [meil, muudaMeil] = useState("ei");
+  const [meil, muudaMeil] = useState("m@m.com");
+  const [message, changeMessage] = useState("");
   const [sonum, muudaSonum] = useState("");
   const [nimi, muudaNimi] = useState("ei");
   
    
-  const emailRef = useRef();
+//  const emailRef = useRef();
   const nimiRef = useRef();
+  const meilRef = useRef();
 
-
- // const sisestaEmail = () => {
- //  if (emailRef.current.value === "12345") {
- //   muudaMeil("jah");
- //   muudaSonum(emailRef.current.value + ",e-mail sisestatud");
- // } 
- //   else {
- //     muudaSonum("Vale e-mail");
- //   }
- // }
+  const muuda = () => {
+   if (meilRef.current.value.includes(".") === false){
+    changeMessage("E-mail ei sisalda punkti!");
+    return;
+   }
+    muudaMeil(meilRef.current.value);
+  }
+ 
 
   const sisestaNimi = () => {
    if (nimiRef.current.value === "karlos") {
@@ -47,17 +47,27 @@ function App() {
     { nimi === "jah" && <button onClick={() => muudaNimi("")}>Kustuta nimi</button>}
       
 
-
+      <div>
+        <label>Email</label>
+        <input type="text" /> <br />
+        <button onClick={muuda}>Muuda</button>
+        {meil}
+        <br /><br />
+        {message}
+      </div>
       
          
-      {<div>
+      {/* {<div>
       <label>E-mail</label> <br />
       <input ref={emailRef} type="text" /><br />
-      </div>}
+      </div>} */}
 
       {/* {meil === "ei" && <button onClick={sisestaEmail}>Sisesta e-mail</button>} */}
-      {meil === "jah" && <button onClick={() => muudaMeil("jah")}>Sisselogitud</button>}
+      {/* {meil === "jah" && <button onClick={() => muudaMeil("jah")}>Sisselogitud</button>} */}
       
+     
+     
+     
       {kasutajanimi}
       <br />
         <button onClick={() => muudaKasutajanimi("MuuKasutaja2")}>Muuda</button>

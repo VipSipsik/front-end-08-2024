@@ -1,18 +1,39 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 
 function HaldaTooteid() {
 
-  const [tooted, uuendaTooted] = useState (["Pirn", "Maasikas", "Õun", "Vaarikas", "Ploom", "Kreek","Kurk","Tomat"])
+  const [tooted, uuendaTooted] = useState (["Pirn", "Maasikas", "Õun",
+     "Vaarikas", "Ploom", "Kreek","Kurk","Tomat"])
+    
+    const toodeRef = useRef();
+
+    const kustuta = (index) => {
+      tooted.splice(index,1);
+      uuendaTooted(tooted.slice());
+     }
+ 
+    const lisa = () => {
+      tooted.push(toodeRef.current.value);
+      uuendaTooted(tooted.slice());
+     }
 
 
   return (
     <div>
+        <label>Tooted</label> <br />
+        <input ref={toodeRef}  type="text" /> <br />
+        <button onClick={lisa}>Lisa</button> <br />
+
       <div> {tooted.length} toodet</div>
       {tooted.length > 0 && <button onClick={() => uuendaTooted([])}>Tühjenda</button>}
       {tooted.length === 0 && <div>Ühtegi toodet pole!</div>}
 
       
-      { tooted.map(nimi => <div>{nimi}</div> )}
+      {tooted.map((nimi, index) => 
+         <div>
+          {nimi} 
+            <button onClick={() => kustuta(index)}>x</button> 
+         </div>)}
     </div>
   )
 }

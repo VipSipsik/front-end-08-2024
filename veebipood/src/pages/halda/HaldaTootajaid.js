@@ -1,20 +1,20 @@
 import React, {useState, useRef} from 'react'
+import tootajadFailist from "../../data/tootajad.json";
 
 function HaldaTootajaid() {
 
-  const [tootajad, uuendaTootajad] = useState(["Kaarel", "Maarek", 
-    "Kaspar", "Toomas", "Karl", "Gustav"]);
+  const [tootajad, uuendaTootajad] = useState(tootajadFailist.slice());
 
     const nimiRef = useRef();
 
     const kustuta = (index) => {
-      tootajad.splice(index,1);
-      uuendaTootajad(tootajad.slice());
+      tootajadFailist.splice(index,1);
+      uuendaTootajad(tootajadFailist.slice());
     }
 
     const lisa = () => {
-      tootajad.push(nimiRef.current.value);
-      uuendaTootajad(tootajad.slice());
+      tootajadFailist.push(nimiRef.current.value);
+      uuendaTootajad(tootajadFailist.slice());
     }
 
 

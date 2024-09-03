@@ -1,18 +1,19 @@
 import React, {useState, useRef} from 'react'
+import tootedFailist from "../../data/tooted.json"
 
 function HaldaTooteid() {
 
-  const [tooted, uuendaTooted] = useState (["BMW", "Bentley", "Nobe", "Nissan", "Toyota", "Tesla"])
+  const [tooted, uuendaTooted] = useState (tootedFailist.slice());
   const toodeRef = useRef();
 
   const kustuta = (index) => {
-      tooted.splice(index,1);
-      uuendaTooted(tooted.slice());
+      tootedFailist.splice(index,1);
+      uuendaTooted(tootedFailist.slice());
      }
  
   const lisa = () => {
-      tooted.push(toodeRef.current.value);
-      uuendaTooted(tooted.slice());
+      tootedFailist.push(toodeRef.current.value);
+      uuendaTooted(tootedFailist.slice());
      }
 
 

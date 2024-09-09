@@ -1,10 +1,10 @@
 import React from 'react'
 
-function animals() {
+function Animals() {
     const animals = [" pigs", " goats", " sheep"]
   return (
     <div>{animals}</div>
   )
 }
 
-export default animals
+export default Animals

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
+import kasutajadFailist from "../../data/kasutajad.json";
 
 function Registreeru() {
     const kasutajanimiRef = useRef();
@@ -38,8 +39,9 @@ function Registreeru() {
         return;
      }
 
+      kasutajadFailist.push(kasutajanimiRef.current.value);
 
-      toast.success("Sisselogitud");
+      toast.success("Registreerutud");
     }
   
     return (

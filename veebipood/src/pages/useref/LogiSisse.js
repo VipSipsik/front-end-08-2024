@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
+import kasutajaFailist from '../../data/kasutajad.json';
 
 function LogiSisse() {
   const kasutajanimiRef = useRef();
@@ -11,11 +12,18 @@ function LogiSisse() {
    //  return;
    // }
 
+   //  kui leiab on vastus muutuja sees:  "admin"   VÕI     "aadu1"
+   //  kui ei leia, siis on muutuja sees:   undefined
+    const vastus = kasutajaFailist.find(kasutaja => kasutaja === kasutajanimiRef.current.value);
+    if (vastus === undefined) {
+      toast.error("Selline kasutaja puudub");
+      return;
+    }
 
-  if (paroolRef.current.value !== "midagi"){
-    toast.error("Parool on vale");
-    return;
- }
+    if (paroolRef.current.value !== "midagi"){
+      toast.error("Parool on vale");
+      return;
+    }
 
     toast.success("Sisselogitud");
   }

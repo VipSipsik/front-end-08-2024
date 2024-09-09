@@ -1,5 +1,6 @@
 import React, {useState, useRef} from 'react'
 import tootedFailist from "../../data/tooted.json"
+import { Link } from 'react-router-dom';
 
 function HaldaTooteid() {
 
@@ -9,12 +10,12 @@ function HaldaTooteid() {
   const kustuta = (index) => {
       tootedFailist.splice(index,1);
       uuendaTooted(tootedFailist.slice());
-     }
+  }
  
   const lisa = () => {
       tootedFailist.push(toodeRef.current.value);
       uuendaTooted(tootedFailist.slice());
-     }
+  }
 
 
   return (
@@ -28,10 +29,13 @@ function HaldaTooteid() {
       {tooted.length === 0 && <div>Ühtegi toodet pole!</div>}
 
       
-      {tooted.map((nimi, index) => 
+      {tooted.map((toode, index) => 
         <div>
-          {nimi} 
+          {toode} 
           <button onClick={() => kustuta(index)}>x</button> 
+          <Link to={"/muuda-toode/" + index}>
+            <button>Muuda</button> 
+          </Link>
         </div>)}
     </div>
   )

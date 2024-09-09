@@ -1,21 +1,21 @@
 import React, {useState, useRef} from 'react'
 import tootajadFailist from "../../data/tootajad.json";
+import { Link } from 'react-router-dom';
 
 function HaldaTootajaid() {
 
   const [tootajad, uuendaTootajad] = useState(tootajadFailist.slice());
+  const nimiRef = useRef();
 
-    const nimiRef = useRef();
+  const kustuta = (index) => {
+    tootajadFailist.splice(index,1);
+    uuendaTootajad(tootajadFailist.slice());
+  }
 
-    const kustuta = (index) => {
-      tootajadFailist.splice(index,1);
-      uuendaTootajad(tootajadFailist.slice());
-    }
-
-    const lisa = () => {
-      tootajadFailist.push(nimiRef.current.value);
-      uuendaTootajad(tootajadFailist.slice());
-    }
+  const lisa = () => {
+    tootajadFailist.push(nimiRef.current.value);
+    uuendaTootajad(tootajadFailist.slice());
+  }
 
 
   return (
@@ -31,8 +31,11 @@ function HaldaTootajaid() {
 
       {tootajad.map((nimi, index) => 
          <div>
-          {nimi} 
+         {index}. {nimi} 
             <button onClick={() => kustuta(index)}>x</button> 
+            <Link to={"/muuda-tootaja/" + index}>
+            <button>Muuda</button>
+            </Link>
          </div>)}
       
     </div>

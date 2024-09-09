@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import keskusedFailist from "../../data/keskused.json"
+import { Link } from "react-router-dom";
 // ../ <--- kausta võrra üles
 // ../ "arrays" kaustast ülespoole (olen pages sees)
 // ../../ "arrays" ja "pages" kaustast ülespoole (olen src sees) 
@@ -109,8 +110,15 @@ function Esindused() {
           <div>Vesse</div>
           <div>Kristiine</div>
           <div>Järveotsa</div> allpool ARRAY-na  */}
-          {keskused.map(keskus => <div>{keskus} <button>Vt lähemalt</button> </div>)}
-        </div>}
+          
+          {keskused.map((keskus, index) => 
+            <div>
+             {keskus} 
+             <Link to={"/esindus/" + index}>
+             <button>Vt lähemalt</button> 
+             </Link>
+            </div> )}
+          </div>}
 
         
         {linn === "Tartu" &&

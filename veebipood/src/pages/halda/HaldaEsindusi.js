@@ -1,15 +1,17 @@
 import React, {useState, useRef} from 'react'
 import keskusedJSON from "../../data/keskused.json";
+import { Link } from 'react-router-dom';
+
 function HaldaEsindusi() {
     
-    const [keskused, muudaKeskused] = useState(keskusedJSON.slice());
-    const keskusRef = useRef();
+  const [keskused, muudaKeskused] = useState(keskusedJSON.slice());
+  const keskusRef = useRef();
 
-    const kustuta = (index) => {
+  const kustuta = (index) => {
       //  keskused.splice(index,1); muudab ainult selle lehe HTMLis
-        keskusedJSON.splice(index,1); // muudab .json failis
-        muudaKeskused(keskusedJSON.slice());
-    }
+      keskusedJSON.splice(index,1); // muudab .json failis
+      muudaKeskused(keskusedJSON.slice());
+  }
 
     const lisa = () => {
       //  keskused.push(keskusRef.current.value); muudab ainult selle lehe HTMLis
@@ -28,6 +30,10 @@ function HaldaEsindusi() {
          <div>
           {index}. {keskus} 
             <button onClick={() => kustuta(index)}>x</button> 
+           {/* App.js:muuda-esindus/:jrknr */}
+           <Link to={"/muuda-esindus/" + index} >
+            <button>Muuda</button>
+          </Link>
          </div>)}
     </div>
   )

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import hinnadFailist from "../../data/hinnad.json";
+import { Link } from 'react-router-dom';
 
 function Hinnad() {
 
@@ -104,7 +105,16 @@ function Hinnad() {
 
 
       <br /><br />
-      {hinnad.map(hind => <button onClick={() => lisa(hind)}>{hind}</button>)}
+      {hinnad.map((hind, index)=> 
+       <div>
+        <button onClick={() => lisa(hind)}>{hind}</button>
+        {/* esimene kaldkriips -> ära lisa olemasolevale URLile
+        Teine kaldkriios -> URL ja muutuja oleksid eraldatud */}
+        <Link to={"/hind/" + index}>
+          <button>Vt lähemalt</button>
+        </Link>
+       </div>
+    )}
     </div>
   )
 }

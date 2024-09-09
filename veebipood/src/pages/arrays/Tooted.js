@@ -7,6 +7,7 @@
 import React, {useState} from 'react'
 import ostukorvJSON from "../../data/ostukorv.json"
 import tootedFailist from "../../data/tooted.json"
+import { Link } from 'react-router-dom';
 
 function Tooted() {
 
@@ -44,20 +45,25 @@ function Tooted() {
     uuendaTooted(tooted.slice());
   }
 
-  const filtreeriAlgavadB = () => {
-    const vastus = tootedFailist.filter(toode => toode.startsWith("B"));
-    uuendaTooted(vastus);
-  }
+  // const filtreeriAlgavadB = () => {
+  //   const vastus = tootedFailist.filter(toode => toode.startsWith("B"));
+  //   uuendaTooted(vastus);
+  // }
 
-  const filtreeriAlgavadN = () => {
-    const vastus = tootedFailist.filter(toode => toode.startsWith("N"));
-    uuendaTooted(vastus);
-  }
+  // const filtreeriAlgavadN = () => {
+  //   const vastus = tootedFailist.filter(toode => toode.startsWith("N"));
+  //   uuendaTooted(vastus);
+  // }
 
-  const filtreeriAlgavadT = () => {
-    const vastus = tootedFailist.filter(toode => toode.startsWith("T"));
-    uuendaTooted(vastus);
-  }
+  // const filtreeriAlgavadT = () => {
+  //   const vastus = tootedFailist.filter(toode => toode.startsWith("T"));
+  //   uuendaTooted(vastus);
+  // }
+
+ const filtreeriAlgav = (taht) => {
+  const vastus = tootedFailist.filter(toode => toode.startsWith(taht));
+  uuendaTooted(vastus);
+ } 
 
   // Sorteeri
    // 1. A-Z
@@ -82,19 +88,23 @@ function Tooted() {
       <button onClick={sorteeriTahedKasvavalt}>Sorteeri kasvavalt</button>
       <button onClick={sorteeriTahedKahanevalt}>Sorteeri kahanevalt</button>
       <br /><br />
-      <button onClick={filtreeriAlgavadB}>Filtreeri Bga algavad</button>
-      <button onClick={filtreeriAlgavadN}>Nga algavad</button>
-      <button onClick={filtreeriAlgavadT}>Tga algavad</button>
+      <button onClick={() => filtreeriAlgav("B")}>Filtreeri Bga algavad</button>
+      <button onClick={() => filtreeriAlgav("N")}>Nga algavad</button>
+      <button onClick={() => filtreeriAlgav("T")}>Tga algavad</button>
 
       <div> {tooted.length} toodet</div>
       {tooted.length > 0 && <button onClick={() => uuendaTooted([])}>Tühjenda</button>}
       {tooted.length === 0 && <div>Ühtegi toodet pole!</div>}
 
       {/* <button onClick={uuenda}>Tühjenda</button> */}
-      { tooted.map(toode => 
+      { tooted.map((toode, index) => 
        <div>
         {toode}
-        <button onClick={() => lisaOstukorvi()}>Lisa ostukorvi</button>
+        <button onClick={() => lisaOstukorvi(toode)}>Lisa ostukorvi</button>
+        <Link to={"/toode/" + index}>
+          <button>Vt lähemalt</button>
+        </Link>
+        
        </div> )}
     </div>
   )

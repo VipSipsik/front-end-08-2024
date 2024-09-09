@@ -5,6 +5,7 @@
   // kui on tühi, siis anna sõnumiga teada, et ühtegi pole
 import React, {useState} from 'react'
 import tootajadFailist from "../../data/tootajad.json";
+import { Link } from 'react-router-dom';
 
 function Tootajad() {
 
@@ -122,12 +123,20 @@ function Tootajad() {
        <br />
        <button onClick={filtreeriKellelPaarisarvTahti}>Filteeri paarisarv tähti</button>
        <br />
+      
       <div> {tootajad.length} töötajat</div>
       {tootajad.length > 0 && <button onClick={() => muudaTootajad([])}>Tühjenda</button>}
       {tootajad.length === 0 && <div>Ühtegi töötajat pole!</div>}
 
       {/* <button onClick={uuenda}>Tühjenda</button> */}
-      { tootajad.map(nimi => <div>{nimi}</div> )}
+      
+      {tootajad.map((nimi, index) => 
+        <div>
+         {nimi}
+         <Link to={"/tootaja/" + index}>
+          <button>Vt lähemalt</button>
+         </Link>
+        </div> )}
     </div>
   )
 }

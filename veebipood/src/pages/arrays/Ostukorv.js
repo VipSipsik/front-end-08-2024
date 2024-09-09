@@ -52,8 +52,8 @@ function Ostukorv() {
         */}
 
     <div>{ostukorv.map((toode, index) =>
-      <div>
-        {toode} 
+      <div key={index}>
+       {index}. {toode} 
         <button onClick={() => lisa(toode)}>Lisa lõppu</button> 
         <button onClick={() => kustuta(index)}>x</button>
       </div>)}

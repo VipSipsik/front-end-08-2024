@@ -30,7 +30,7 @@ function HaldaTooteid() {
 
       
       {tooted.map((toode, index) => 
-        <div>
+        <div key={index}>
           {toode} 
           <button onClick={() => kustuta(index)}>x</button> 
           <Link to={"/muuda-toode/" + index}>

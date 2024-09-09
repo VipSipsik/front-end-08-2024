@@ -131,7 +131,7 @@ function Tootajad() {
       {/* <button onClick={uuenda}>Tühjenda</button> */}
       
       {tootajad.map((nimi, index) => 
-        <div>
+        <div key={index}>
          {nimi}
          <Link to={"/tootaja/" + index}>
           <button>Vt lähemalt</button>

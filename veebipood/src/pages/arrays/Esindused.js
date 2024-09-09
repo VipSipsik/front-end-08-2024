@@ -19,55 +19,58 @@ function Esindused() {
     }
 
     const sorteeriAZ = () => {
-      keskused.sort((a,b) => a.localeCompare(b, "et")); 
+      keskused.sort((a,b) => a.nimi.localeCompare(b.nimi, "et")); 
       muudaKeskused(keskused.slice()); // array puhul HTMLi uuendamine
     }  
-    
+     // localeCompare --> kui on vaja sõnu sorteerida
+     // lahutustehe --> kui on vaja numbreid sorteerida
+     // Objekte sorteerida ei saa
+
     const sorteeriZA = () => {
      //  keskused.sort(); 
      //  keskused.reverse();
-      keskused.sort((a,b) => b.localeCompare(a, "et"));
+      keskused.sort((a,b) => b.nimi.localeCompare(a.nimi, "et"));
       muudaKeskused(keskused.slice()); 
     }  
 
     const sorteerTahedKasvavalt = () => {
-      keskused.sort((a, b) => a.length - b.length); 
+      keskused.sort((a, b) => a.nimi.length - b.nimi.length); 
       muudaKeskused(keskused.slice()); 
     }  
 
     const sorteeriTahedKahanevalt = () => {
-      keskused.sort((a, b) => b.length - a.length); 
+      keskused.sort((a, b) => b.nimi.length - a.nimi.length); 
       muudaKeskused(keskused.slice()); 
     }  
 
     const sorteeriKolmasTaht = () => {
-      keskused.sort((a,b) => a[2].localeCompare(b[2], "et")); 
+      keskused.sort((a,b) => a.nimi[2].localeCompare(b.nimi[2], "et")); 
       muudaKeskused(keskused.slice()); 
     }  
     
 
     const filtreeriTahemarkeRohkemKui7 = () => {
-      const vastus = keskusedFailist.filter(keskus => keskus.length >= 7); 
+      const vastus = keskusedFailist.filter(keskus => keskus.nimi.length >= 7); 
       muudaKeskused(vastus); 
     }  
 
     const filtreeriTahemarkeTapselt9 = () => {
-      const vastus = keskusedFailist.filter(keskus => keskus.length === 9); 
+      const vastus = keskusedFailist.filter(keskus => keskus.nimi.length === 9 && keskus.tel.startsWith("55")); 
       muudaKeskused(vastus); 
     }  
 
     const filtreeriKesSisaldabIsLyhendit = () => {
-      const vastus = keskusedFailist.filter(keskus => keskus.includes("is")); 
+      const vastus = keskusedFailist.filter(keskus => keskus.nimi.includes("is")); 
       muudaKeskused(vastus); 
     }  
 
     const filtreeriKellelViimaneTahtE = () => {
-      const vastus = keskusedFailist.filter(keskus => keskus.endsWith("e")); 
+      const vastus = keskusedFailist.filter(keskus => keskus.nimi.endsWith("e")); 
       muudaKeskused(vastus);  
     }  
 
     const filtreeriKellelOnKolmasTahtI = () => {
-      const vastus = keskusedFailist.filter(keskus => keskus[2] === "i"); 
+      const vastus = keskusedFailist.filter(keskus => keskus.nimi[2] === "i"); 
       muudaKeskused(vastus); 
     }  
 
@@ -112,8 +115,8 @@ function Esindused() {
           <div>Järveotsa</div> allpool ARRAY-na  */}
           
           {keskused.map((keskus, index) => 
-            <div>
-             {keskus} 
+            <div key={keskus.nimi}>
+             {keskus.nimi} - {keskus.tel} - {keskus.aadress}
              <Link to={"/esindus/" + index}>
              <button>Vt lähemalt</button> 
              </Link>

@@ -30,7 +30,7 @@ function HaldaTootajaid() {
       {tootajad.length === 0 && <div>Ühtegi töötajat pole!</div>}
 
       {tootajad.map((nimi, index) => 
-         <div>
+         <div key={index}>
          {index}. {nimi} 
             <button onClick={() => kustuta(index)}>x</button> 
             <Link to={"/muuda-tootaja/" + index}>

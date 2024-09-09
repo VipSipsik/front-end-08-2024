@@ -68,7 +68,7 @@ function App() {
 
         <Route path='esindus/:index' element={ <YksEsindus /> } />
         <Route path='hind/:hinnaIndex' element={ <YksHind/> } />
-        <Route path='kasutaja/' element={ <YksKasutaja/> } />
+        <Route path='kasutaja/:nimi' element={ <YksKasutaja/> } />
         <Route path='toode/:tooteIndex' element={ <YksToode/> } />
         <Route path='tootaja/:index' element={ <YksTootaja/> } />
 

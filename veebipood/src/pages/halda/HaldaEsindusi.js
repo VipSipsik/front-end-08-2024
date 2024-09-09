@@ -6,6 +6,8 @@ function HaldaEsindusi() {
     
   const [keskused, muudaKeskused] = useState(keskusedJSON.slice());
   const keskusRef = useRef();
+  const telefonRef = useRef();
+  const aadressRef = useRef();
 
   const kustuta = (index) => {
       //  keskused.splice(index,1); muudab ainult selle lehe HTMLis
@@ -15,7 +17,13 @@ function HaldaEsindusi() {
 
     const lisa = () => {
       //  keskused.push(keskusRef.current.value); muudab ainult selle lehe HTMLis
-     keskusedJSON.push(keskusRef.current.value); // muudab .json failis
+     keskusedJSON.push(
+      {
+       "nimi": keskusRef.current.value, 
+       "tel":  telefonRef.current.value, 
+       "aadress": aadressRef.current.value 
+      }
+     ); // muudab .json failis
      muudaKeskused(keskusedJSON.slice());
     }
 
@@ -24,11 +32,17 @@ function HaldaEsindusi() {
     <div>
         <label>Keskuse nimi</label> <br />
         <input ref={keskusRef}  type="text" /> <br />
+        
+        <label>Keskuse telefon</label> <br />
+        <input ref={telefonRef}  type="text" /> <br />
+       
+        <label>Keskuse aadress</label> <br />
+        <input ref={aadressRef}  type="text" /> <br />
         <button onClick={lisa}>Lisa</button> <br />
 
         {keskused.map((keskus, index) => 
-         <div>
-          {index}. {keskus} 
+         <div key={index}>
+          {index}. {keskus.nimi} - {keskus.tel} - {keskus.aadress} 
             <button onClick={() => kustuta(index)}>x</button> 
            {/* App.js:muuda-esindus/:jrknr */}
            <Link to={"/muuda-esindus/" + index} >
@@ -38,5 +52,7 @@ function HaldaEsindusi() {
     </div>
   )
 }
+
+      
 
 export default HaldaEsindusi

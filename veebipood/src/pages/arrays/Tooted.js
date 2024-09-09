@@ -91,6 +91,10 @@ function Tooted() {
       <button onClick={() => filtreeriAlgav("B")}>Filtreeri Bga algavad</button>
       <button onClick={() => filtreeriAlgav("N")}>Nga algavad</button>
       <button onClick={() => filtreeriAlgav("T")}>Tga algavad</button>
+     
+     {/* kui on sulg () lõpus --> see tähendab, et pean mingile muutuja selle funktsiooni sees
+                            andma väärtust
+        siis peab olema ka () => alguses*/}
 
       <div> {tooted.length} toodet</div>
       {tooted.length > 0 && <button onClick={() => uuendaTooted([])}>Tühjenda</button>}
@@ -98,7 +102,7 @@ function Tooted() {
 
       {/* <button onClick={uuenda}>Tühjenda</button> */}
       { tooted.map((toode, index) => 
-       <div>
+       <div key={index}>
         {toode}
         <button onClick={() => lisaOstukorvi(toode)}>Lisa ostukorvi</button>
         <Link to={"/toode/" + index}>

@@ -114,6 +114,7 @@ function Esindused() {
           <div>Kristiine</div>
           <div>Järveotsa</div> allpool ARRAY-na  */}
           
+         
           {keskused.map((keskus, index) => 
             <div key={keskus.nimi}>
              {keskus.nimi} - {keskus.tel} - {keskus.aadress}

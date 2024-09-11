@@ -4,7 +4,7 @@
   // tühjendamine
   // kui on tühi, siis anna sõnumiga teada, et ühtegi pole
   
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import ostukorvJSON from "../../data/ostukorv.json"
 import tootedFailist from "../../data/tooted.json"
 import { Link } from 'react-router-dom';
@@ -12,7 +12,8 @@ import { Link } from 'react-router-dom';
 function Tooted() {
 
   const [tooted, uuendaTooted] = useState(tootedFailist.slice());
-  
+  const toodeRef = useRef();
+
   const lisaOstukorvi = (uusToode) => {
     ostukorvJSON.push(uusToode);
     // ei pea HTMLi uuendama, sest ostukorvi nimekiri ei pea siin HTMLis 
@@ -25,43 +26,48 @@ function Tooted() {
     uuendaTooted(tootedFailist.slice());
   }
 
+  const lisaVormist = () => {
+    tootedFailist.push({"toode":toodeRef.current.value, "lisaja": "Vorm"}); 
+    uuendaTooted(tootedFailist.slice());
+  }
+
   const sorteeriAZ= () => {
-    tooted.sort((a,b) => a.localeCompare(b, "et"));
+    tooted.sort((a,b) => a.nimi.localeCompare(b.nimi, "et"));
     uuendaTooted(tooted.slice());
   }
 
   const sorteeriZA= () => {
-    tooted.sort((a,b) => b.localeCompare(a, "et"));
+    tooted.sort((a,b) => b.nimi.localeCompare(a.nimi, "et"));
    uuendaTooted(tooted.slice());
   }
 
   const sorteeriTahedKasvavalt= () => {
-    tooted.sort((a,b) => a.length - b.length);
+    tooted.sort((a,b) => a.nimi.length - b.nimi.length);
     uuendaTooted(tooted.slice());
   }
 
   const sorteeriTahedKahanevalt= () => {
-    tooted.sort((a,b) => b.length - a.length);
+    tooted.sort((a,b) => b.nimi.length - a.nimi.length);
     uuendaTooted(tooted.slice());
   }
 
   // const filtreeriAlgavadB = () => {
-  //   const vastus = tootedFailist.filter(toode => toode.startsWith("B"));
+  //   const vastus = tootedFailist.filter(toode => toode.nimi.startsWith("B"));
   //   uuendaTooted(vastus);
   // }
 
   // const filtreeriAlgavadN = () => {
-  //   const vastus = tootedFailist.filter(toode => toode.startsWith("N"));
+  //   const vastus = tootedFailist.filter(toode => toode.nimi.startsWith("N"));
   //   uuendaTooted(vastus);
   // }
 
   // const filtreeriAlgavadT = () => {
-  //   const vastus = tootedFailist.filter(toode => toode.startsWith("T"));
+  //   const vastus = tootedFailist.filter(toode => toode.nimi.startsWith("T"));
   //   uuendaTooted(vastus);
   // }
 
  const filtreeriAlgav = (taht) => {
-  const vastus = tootedFailist.filter(toode => toode.startsWith(taht));
+  const vastus = tootedFailist.filter(toode => toode.nimi.startsWith(taht));
   uuendaTooted(vastus);
  } 
 
@@ -82,6 +88,12 @@ function Tooted() {
       <button onClick={reset}>Reset</button>
       <br /><br />
 
+      <label>Toode</label> <br />
+      <input ref={toodeRef} type="text" /> <br />
+      <button onClick={lisaVormist}>Sisesta</button>
+      <br /><br />
+
+
       <button onClick={sorteeriAZ}>Sorteeri A-Z</button>
       <button onClick={sorteeriZA}>Sorteeri Z-A</button>
       <br />
@@ -101,10 +113,10 @@ function Tooted() {
       {tooted.length === 0 && <div>Ühtegi toodet pole!</div>}
 
       {/* <button onClick={uuenda}>Tühjenda</button> */}
-      { tooted.map((toode, index) => 
-       <div key={index}>
-        {toode}
-        <button onClick={() => lisaOstukorvi(toode)}>Lisa ostukorvi</button>
+      {tooted.map((toode, index) => 
+       <div key={toode.nimi}>
+        {toode.nimi} - {toode.hind} - {toode.pilt} - {toode.aktiivne}
+        <button onClick={() => lisaOstukorvi(toode.nimi)}>Lisa ostukorvi</button>
         <Link to={"/toode/" + index}>
           <button>Vt lähemalt</button>
         </Link>

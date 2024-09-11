@@ -24,13 +24,20 @@ function YksTootaja() {
   const {index} = useParams();
   const vastus = tootajadFailist[index];
   
+  if (vastus === undefined) {
+    return <div>
+      <img src="https://hiiumaa.ecoop.ee/assets/img/icon-sad-empty-cart.svg" alt=""/>
+    </div>
+  }
+
   return (
     <div>
       <div>URLs olev muutuja: {index}</div>
-      <h2>Töötaja nimi: {vastus} </h2>
+      <h2>Töötaja nimi: {vastus.eesnimi} </h2>
       <hr />
-      <p>E-mail:</p>
-      <p>Telefon: </p>
+      <p>Telefon: {vastus.telefon} </p>
+      <p>E-mail: {vastus.email} </p>
+      
     </div>
   )
 }

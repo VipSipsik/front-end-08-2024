@@ -1,8 +1,9 @@
 [
-    "BMW",
-    "Bentley",
-    "Nobe",
-    "Nissan",
-    "Toyota",
-    "Tesla"
+    {"nimi": "BMW", "hind": 35000, "pilt": "URL.jpg", "aktiivne": true},
+    {"nimi": "Bentley", "hind": 85000, "pilt": "URL.jpg", "aktiivne": true},
+    {"nimi": "Nobe", "hind": 123000, "pilt": "URL.jpg", "aktiivne": true},
+    {"nimi": "Nissan", "hind": 90000, "pilt": "URL.jpg", "aktiivne": true},
+    {"nimi": "Toyota", "hind": 55000, "pilt": "URL.jpg", "aktiivne": true},
+    {"nimi": "Tesla", "hind": 167000, "pilt": "URL.jpg", "aktiivne": true}
+   
 ]

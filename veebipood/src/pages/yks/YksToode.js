@@ -23,12 +23,20 @@ function YksToode() {
   const {tooteIndex} = useParams();
   const leitud = tootedFailist[tooteIndex];
   
-  
+  if (leitud === undefined) {
+    // kui on tingimused täidetud, siis siin kohal HTMLi väljakuvamine lõppeb
+     return <div>
+      <img src="https://hiiumaa.ecoop.ee/assets/img/icon-sad-empty-cart.svg" alt="" />
+      </div>
+    }
+
   return (
     <div>
       <div>Järjekorranumber, mis on URLis: {tooteIndex} </div>
-      <div>Toode, millele klikiti: {leitud} </div>
-      <div>Toote omadused...</div>
+      <div>Toode, millele klikiti: {leitud.nimi} </div>
+      <div>Toote hind: {leitud.hind} </div>
+      <div>Toote pilt: {leitud.pilt} </div>
+      <div>Toode aktiivne: {leitud.aktiivne} </div>
       <div>Toote lisaja süsteemist: {} </div>
     </div>
   )

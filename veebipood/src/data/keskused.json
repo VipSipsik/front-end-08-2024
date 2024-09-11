@@ -1,10 +1,10 @@
 [
-    {"nimi": "Ülemiste", "tel": "55566677", "aadress": "Lennujaama 11"},
-    {"nimi":"Magistrali", "tel": "55588877", "aadress": "Mustamäe 321" },
-    {"nimi":"Vesse", "tel": "55565477", "aadress": "Vesse 167" },
-    {"nimi":"Kristiine", "tel": "55576457", "aadress": "Endla 16" },
-    {"nimi":"Järveotsa", "tel": "55235477", "aadress": "Järve 87" },
-    {"nimi":"Rocca al Mare", "tel": "57545677", "aadress": "Loomaaia 123" },
-    {"nimi":"Ämari", "tel": "55006787", "aadress": "Polügoni 821" }
+    {"nimi": "Ülemiste", "tel": "555666776", "aadress": "Lennujaama 11"},
+    {"nimi":"Magistrali", "tel": "555888773", "aadress": "Mustamäe 321" },
+    {"nimi":"Vesse", "tel": "555654717", "aadress": "Vesse 167" },
+    {"nimi":"Kristiine", "tel": "555764357", "aadress": "Endla 16" },
+    {"nimi":"Järveotsa", "tel": "552356477", "aadress": "Järve 87" },
+    {"nimi":"Rocca al Mare", "tel": "575945677", "aadress": "Loomaaia 123" },
+    {"nimi":"Ämari", "tel": "550066787", "aadress": "Polügoni 821" }
     
 ]

@@ -1,8 +1,9 @@
 [
-    "Kaarel",
-    "Maarek",
-    "Kaspar",
-    "Toomas",
-    "Karl",
-    "Gustav"
+    {"eesnimi": "Kaarel", "telefon": "555666737","email": "Kaarel@email.com"},
+    {"eesnimi": "Maarek", "telefon": "558666797","email": "Maarek@email.com"}, 
+    {"eesnimi":"Kaspar", "telefon": "557566472","email": "Kaspar@email.com"},
+    {"eesnimi":"Toomas", "telefon": "555466707","email": "Toomas@email.com"},
+    {"eesnimi":"Karl", "telefon": "555111790","email": "Karl@email.com"},
+    {"eesnimi":"Gustav", "telefon": "569667774","email": "Gustav@email.com"}
+
 ]

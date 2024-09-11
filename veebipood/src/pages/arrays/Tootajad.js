@@ -39,58 +39,58 @@ function Tootajad() {
   }  
   
   const sorteeriAZ= () => {
-    tootajad.sort((a,b) => a.localeCompare(b, "et"));
+    tootajad.sort((a,b) => a.eesnimi.localeCompare(b.eesnimi, "et"));
     muudaTootajad(tootajad.slice());
   }
 
   const sorteeriZA= () => {
-    tootajad.sort((a,b) => b.localeCompare(a, "et"));
+    tootajad.sort((a,b) => b.eesnimi.localeCompare(a.eesnimi, "et"));
     muudaTootajad(tootajad.slice());
   }
 
   const sorteeriTahedKasvavalt= () => {
-    tootajad.sort((a,b) => a.length - b.length);
+    tootajad.sort((a,b) => a.eesnimi.length - b.eesnimi.length);
     muudaTootajad(tootajad.slice());
   }
 
   const sorteeriTahedKahanevalt= () => {
-    tootajad.sort((a,b) => b.length - a.length);
+    tootajad.sort((a,b) => b.eesnimi.length - a.eesnimi.length);
     muudaTootajad(tootajad.slice());
   }
 
   const sorteeriTeineTaht = () => {
-    tootajad.sort((a,b) => a[1].localeCompare(b[1], "et"));
+    tootajad.sort((a,b) => a.eesnimi[1].localeCompare(b.eesnimi[1], "et"));
     muudaTootajad(tootajad.slice());
   }
 
 
   const filtreeriTahemarkeTapselt3 = () => {
-    const vastus = tootajadFailist.filter(tootaja => tootaja.length === 3);
+    const vastus = tootajadFailist.filter(tootaja => tootaja.eesnimi.length === 3);
     muudaTootajad(vastus);
   }
 
   const filtreeriTahemarkeRohkemKui5 = () => {
-    const vastus = tootajadFailist.filter(tootaja => tootaja.length >=5);
+    const vastus = tootajadFailist.filter(tootaja => tootaja.eesnimi.length >=5);
     muudaTootajad(vastus);
   }
 
   const filtreeriKesSisalabAiLyhendit = () => {
-    const vastus = tootajadFailist.filter(tootaja => tootaja.includes("ai"));
+    const vastus = tootajadFailist.filter(tootaja => tootaja.eesnimi.includes("ai"));
     muudaTootajad(vastus);
   }
 
   const filtreeriKellelNeljasTahtI = () => {
-    const vastus = tootajadFailist.filter(tootaja => tootaja[5] === "i" || tootaja[5] === "I");
+    const vastus = tootajadFailist.filter(tootaja => tootaja.eesnimi[5] === "i" || tootaja.eesnimi[5] === "I");
     muudaTootajad(vastus);
   }
 
   const filtreeriKellelEsimeneTahtM = () => {
-    const vastus = tootajadFailist.filter(tootaja => tootaja.startsWith("M") || tootaja.startsWith("m"));
+    const vastus = tootajadFailist.filter(tootaja => tootaja.eesnimi.startsWith("M") || tootaja.eesnimi.startsWith("m"));
     muudaTootajad(vastus);
   }
 
   const filtreeriKellelPaarisarvTahti = () => {
-    const vastus = tootajadFailist.filter(tootaja => tootaja.length % 2 === 0);
+    const vastus = tootajadFailist.filter(tootaja => tootaja.eesnimi.length % 2 === 0);
     muudaTootajad(vastus);
   }
 
@@ -130,9 +130,10 @@ function Tootajad() {
 
       {/* <button onClick={uuenda}>Tühjenda</button> */}
       
-      {tootajad.map((nimi, index) => 
-        <div key={index}>
-         {nimi}
+      
+      {tootajad.map((tootaja, index) => 
+        <div key={tootaja.eesnimi}>
+         {tootaja.eesnimi} - {tootaja.telefon} - {tootaja.email}
          <Link to={"/tootaja/" + index}>
           <button>Vt lähemalt</button>
          </Link>

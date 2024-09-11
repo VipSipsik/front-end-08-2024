@@ -6,20 +6,21 @@ import ostukorvFailist from "../../data/ostukorv.json"
 // HTMLs tuleb kõik importida
 // "SMTH is not defined." kui pole imporditud
 
-function Ostukorv() {
+function Ostukorv() { // lehele tulles võetakse algväärtus useState sulgude seest
   const [ostukorv, muudaOstukorv] = useState(ostukorvFailist.slice());
 
-  const lisaRedbull = () => {
+  const lisaPakiautomaat = () => {
    // muudaOstukorv(["Coca", "Fanta", "Sprite", "Red bull"])
-   ostukorvFailist.push("Red bull");
+   ostukorvFailist.push({"nimi": "Pakiautomaat", "hind": 3, "pilt": "Pilt.jpg", "aktiivne": true});
    muudaOstukorv(ostukorvFailist.slice());
   }
 
-  const lisaVichy = () => {
-   //  muudaOstukorv(["Coca", "Fanta", "Sprite", "Vichy"])
-   ostukorvFailist.push("Vichy");
-   muudaOstukorv(ostukorvFailist.slice());
-  }
+  // const lisaVichy = () => {
+  //  //  muudaOstukorv(["Coca", "Fanta", "Sprite", "Vichy"])
+  //  ostukorvFailist.push("Vichy");
+  //  muudaOstukorv(ostukorvFailist.slice());
+  // }
+
     // Seda sulgu täites ütlen, et saan selle sisu muutuja kätte onClick sulgude seest
   const lisa = (uusToode) => {
     ostukorvFailist.push(uusToode);
@@ -35,13 +36,39 @@ function Ostukorv() {
     ostukorvFailist.splice(0); // alates 0-st, lõpuni välja kustutab
     muudaOstukorv(ostukorvFailist.slice());
    }
+   
+   // reegel: kõik muutujad võiks teha esimesena "const" ja kui on vajadus teda teist korda
+  //          muuta siis võtan "const" eest ära
+
+  // kui muudame sõnumit, tooteid, kogus --> me muudame seda useState kaudu, 
+  //                    mitte otse võrdusmärgiga
+
+  // const [sonum, muudaSonum]  ---> see const siin tähendab, 
+  //                  et me ei saa otse võrdusmärgiga muutujat muuta
+  // nii on keelatud:
+  // sonum = "tere";
+
+  // miks peame tegema muudaSonum("tere") kaudu --> see
+  //annab käskluse ka HTMLi uuendada
+
+  // luba muuta: let
+  
+   const arvutaHinnadKokku = () => {
+    let summa = 0;
+   // summa = summa + 3;
+   // summa = summa + 35000;
+   // summa = summa + 85000;
+    ostukorv.forEach(toode => summa = summa + toode.hind);
+
+    return summa;
+   }
 
   return (
    <div>
       <div>Kokku: {ostukorv.length} tk</div>
 
-      <button onClick={lisaRedbull}>Lisa lõppu Red bull juurde</button>
-      <button onClick={lisaVichy}>Lisa lõppu Vichy juurde</button>
+      <button onClick={lisaPakiautomaat}>Lisa lõppu pakiautomaat juurde</button>
+      {/* <button onClick={lisaVichy}>Lisa lõppu Vichy juurde</button> */}
 
       {ostukorv.length > 0 && <button onClick={tyhjenda}>Tühjenda</button>}
       
@@ -53,7 +80,7 @@ function Ostukorv() {
 
     <div>{ostukorv.map((toode, index) =>
       <div key={index}>
-       {index}. {toode} 
+       {index}. {toode.nimi} - {toode.hind} - {toode.pilt} - {toode.aktiivne}
         <button onClick={() => lisa(toode)}>Lisa lõppu</button> 
         <button onClick={() => kustuta(index)}>x</button>
       </div>)}
@@ -65,9 +92,18 @@ function Ostukorv() {
         <Link to="/avaleht">Mine avalehele</Link>
       </div>}
 
+      <div> Kokku: {arvutaHinnadKokku()} €</div>
       
    </div>
   )
 }
 
 export default Ostukorv
+
+// onClick={() => muudaSonum("UUS_SÕNUM")} <-- kui saadetakse midagi sulgude vahel
+// onClick={lisa}  <--- see on kui ei saadeta midagi sulgude vahel
+// onClick={() => kustuta(2)}
+// onClick={sorteeri}
+
+// kui pannakse funktsioon ilma klikita käima:
+//  <div>{arvutaHinnadKokku()}</div>

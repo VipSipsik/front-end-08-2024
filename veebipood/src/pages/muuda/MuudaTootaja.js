@@ -33,7 +33,7 @@ function MuudaTootaja() {
       <label>Töötaja email:</label> <br />
       <input type="text" ref={emailRef} defaultValue={leitud.email} /> <br />
       
-      <Link to="halda-tootajaid">
+      <Link to="/halda-tootajaid">
       <button onClick= {muuda} >Muuda</button> <br />
       </Link>
     </div>

@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react'
 import tootedFailist from "../../data/tooted.json"
 import { Link } from 'react-router-dom';
+//import { ToastContainer, toast } from 'react-toastify';
 
 function HaldaTooteid() {
 

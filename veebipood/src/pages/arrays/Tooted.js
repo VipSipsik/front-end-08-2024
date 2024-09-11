@@ -27,7 +27,7 @@ function Tooted() {
   }
 
   const lisaVormist = () => {
-    tootedFailist.push({"toode":toodeRef.current.value, "lisaja": "Vorm"}); 
+    tootedFailist.push({"nimi": toodeRef.current.value, "lisaja": "Vorm"}); 
     uuendaTooted(tootedFailist.slice());
   }
 
@@ -116,7 +116,7 @@ function Tooted() {
       {tooted.map((toode, index) => 
        <div key={toode.nimi}>
         {toode.nimi} - {toode.hind} - {toode.pilt} - {toode.aktiivne}
-        <button onClick={() => lisaOstukorvi(toode.nimi)}>Lisa ostukorvi</button>
+        <button onClick={() => lisaOstukorvi(toode)}>Lisa ostukorvi</button>
         <Link to={"/toode/" + index}>
           <button>Vt lähemalt</button>
         </Link>

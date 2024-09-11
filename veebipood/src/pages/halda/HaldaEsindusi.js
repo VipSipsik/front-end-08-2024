@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react'
 import keskusedJSON from "../../data/keskused.json";
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 function HaldaEsindusi() {
     
@@ -8,11 +9,15 @@ function HaldaEsindusi() {
   const keskusRef = useRef();
   const telefonRef = useRef();
   const aadressRef = useRef();
+  const otsinguRef = useRef();
+
 
   const kustuta = (index) => {
       //  keskused.splice(index,1); muudab ainult selle lehe HTMLis
       keskusedJSON.splice(index,1); // muudab .json failis
       muudaKeskused(keskusedJSON.slice());
+      toast.success("Keskus kustutatud!");
+
   }
 
     const lisa = () => {
@@ -27,9 +32,17 @@ function HaldaEsindusi() {
      muudaKeskused(keskusedJSON.slice());
     }
 
+    const otsiEsindustest = () => {
+      const vastus = keskusedJSON.filter(keskus => keskus.nimi.includes(otsinguRef.current.value));
+      muudaKeskused(vastus);
+    }
+
+    
 
   return (
     <div>
+        <input ref={otsinguRef} onChange={otsiEsindustest} type= "text" />
+        <br /><br />
         <label>Keskuse nimi</label> <br />
         <input ref={keskusRef}  type="text" /> <br />
         
@@ -49,6 +62,12 @@ function HaldaEsindusi() {
             <button>Muuda</button>
           </Link>
          </div>)}
+
+         <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          theme="dark"
+        />
     </div>
   )
 }

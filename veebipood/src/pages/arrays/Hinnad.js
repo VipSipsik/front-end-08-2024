@@ -64,6 +64,22 @@ function Hinnad() {
     muudaHinnad(vastus);
   }
 
+  const arvutaHinnadKokku = () => {
+    let summa = 0;
+    hinnad.forEach(hind => summa = summa + hind.number);
+    return summa;
+   }
+
+   const arvutaLisajaTahedKokku = () => {
+    let summa = 0;
+    hinnad.forEach(hind => summa = summa + hind.lisaja.length);
+    return summa;
+   }
+
+  // [{}, {}, {}]  --> .length 3
+  // {} .length --> error
+  // "Tarmo".length  ---> 5
+
   return (
     <div>
       <br /><br />
@@ -116,6 +132,9 @@ function Hinnad() {
         </Link>
        </div>
     )}
+
+     <div>{arvutaHinnadKokku()} €</div>
+     <div>{arvutaLisajaTahedKokku()} tk</div>
     </div>
   )
 }

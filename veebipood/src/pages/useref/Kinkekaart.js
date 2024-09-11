@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
+import ostukorvFailist from "../../data/ostukorv.json";
+
 
 // VÄRVID:
 // tumesinine - JavaScriptiss liigitus, HTMLis liigitus
@@ -68,9 +70,22 @@ function Kinkekaart() {
         return;
       }
 
-
+   // Kui pushin erinevatesse failidesse, peab kuju olema:
+   //{"nimi": "Pakiautomaat", "hind": 3, "pilt": "PILT.jpg", "aktiivne": true}
+   // ostukorvFailist.push({"nimi": "Kinkekaart" + kogus + " tk", "hind": summa * kogus, "pilt": "PILT.jpg", "aktiivne": true})
+      ostukorvFailist.push({
+   //   "nimi": "Kinkekaart" + summa + "€..." + kogus + " tk",
+        "nimi": `Kinkekaart ${summa}€ - ${kogus} tk`, 
+        "hind": summa * kogus, 
+        "pilt": "PILT.jpg", 
+        "aktiivne": true
+      });
       toast.success("Ostukorvi lisatud!");
     //  muudaSonum("Ostukorvi lisatud");
+
+    // "" <--- samaväärsed
+    // '' <--- samaväärsed
+    // `${}` <--- back-tick - siia sisse saab muutujaid kirjutada sõnade vahele
     }
 
       const changeShowEmail = () => {

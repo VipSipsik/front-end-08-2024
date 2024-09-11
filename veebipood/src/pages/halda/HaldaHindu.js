@@ -6,6 +6,7 @@ function HaldaHindu() {
     
     const [hinnad, muudaHinnad] = useState (hinnadJSON.slice());
     const hindRef = useRef();
+    const otsinguRef = useRef();
 
     const kustuta = (index) => {
         hinnadJSON.splice(index,1);
@@ -13,13 +14,23 @@ function HaldaHindu() {
     }
 
     const lisa = () => {
-        hinnadJSON.push(hindRef.current.value);
+        hinnadJSON.push({"number" : hindRef.current.value, "lisaja": "Peeter"});
         muudaHinnad(hinnadJSON.slice());
     }
 
+    const otsiHindadest = () => {
+        const vastus = hinnadJSON.filter(hind => 
+            String(hind.number).includes(otsinguRef.current.value));
+        muudaHinnad(vastus);
+    }
 
     return (
      <div>
+
+        <input type="text" ref={otsinguRef} onChange={otsiHindadest} />
+
+        
+        <br /><br />
         <label>Hind</label> <br />
         <input ref={hindRef}  type="text" /> <br />
         <button onClick={lisa}>Lisa</button> <br />

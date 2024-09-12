@@ -88,3 +88,12 @@ td, th {
 .kalkulaator td:active {
   background-color: rgb(245, 245, 245);
 }
+
+.toote-pilt {
+  height: 100px;
+  width: 150px;
+  border-radius: 10px;
+  border-color: black;
+  border-width: 5px;
+}
+

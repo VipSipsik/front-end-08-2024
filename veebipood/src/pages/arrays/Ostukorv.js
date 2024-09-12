@@ -80,7 +80,8 @@ function Ostukorv() { // lehele tulles võetakse algväärtus useState sulgude s
 
     <div>{ostukorv.map((toode, index) =>
       <div key={index}>
-       {index}. {toode.nimi} - {toode.hind} - {toode.pilt} - {toode.aktiivne}
+       {index}. {toode.nimi} - {toode.hind} - {toode.aktiivne}
+        <img className='toote-pilt' src={`/images/${toode.pilt}`} alt=""/>
         <button onClick={() => lisa(toode)}>Lisa lõppu</button> 
         <button onClick={() => kustuta(index)}>x</button>
       </div>)}

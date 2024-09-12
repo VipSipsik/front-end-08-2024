@@ -8,6 +8,7 @@ function HaldaTootajaid() {
   const eesnimiRef = useRef();
   const telefonRef = useRef();
   const emailRef = useRef();
+  const otsinguRef = useRef();
 
   const kustuta = (index) => {
     tootajadFailist.splice(index,1);
@@ -25,9 +26,16 @@ function HaldaTootajaid() {
     uuendaTootajad(tootajadFailist.slice());
   }
 
+  const otsiTootajatest = () => {
+    const vastus = tootajadFailist.filter(tootaja => tootaja.eesnimi.includes(otsinguRef.current.value));
+    uuendaTootajad(vastus);
+  }
 
   return (
     <div>
+        <div>Otsing</div>
+        <input ref={otsinguRef} onChange={otsiTootajatest} type= "text" />
+        <br /><br />
 
         <label>Töötaja eesnimi</label> <br />
         <input ref={eesnimiRef}  type="text" /> <br />

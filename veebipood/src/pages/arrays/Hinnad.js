@@ -6,6 +6,7 @@ function Hinnad() {
 
   const [hinnad, muudaHinnad] = useState (hinnadFailist.slice());
   const hindRef = useRef();
+  const otsinguRef = useRef();
   // mitu tk välja näitatakse
   // tühjendamine
   // kui on tühi, siis anna sõnumiga teada, et ühtegi pole
@@ -79,10 +80,21 @@ function Hinnad() {
   // [{}, {}, {}]  --> .length 3
   // {} .length --> error
   // "Tarmo".length  ---> 5
+  
+  const otsiHindadest = () => {
+  const vastus = hinnadFailist.filter(hind => 
+    String(hind.number).includes(otsinguRef.current.value));
+    muudaHinnad(vastus);
+    }
+
 
   return (
     <div>
+
+      <div>otsing</div>
+      <input ref={otsinguRef} onChange={otsiHindadest} type= "text" />
       <br /><br />
+      
       <button onClick={reset}>Reset</button>
       <br /><br />
       <label>Hind</label> <br />

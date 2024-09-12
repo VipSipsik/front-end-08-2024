@@ -36,13 +36,14 @@ function HaldaEsindusi() {
       const vastus = keskusedJSON.filter(keskus => keskus.nimi.includes(otsinguRef.current.value));
       muudaKeskused(vastus);
     }
-
     
 
   return (
     <div>
+        <div>Otsing</div>
         <input ref={otsinguRef} onChange={otsiEsindustest} type= "text" />
         <br /><br />
+        
         <label>Keskuse nimi</label> <br />
         <input ref={keskusRef}  type="text" /> <br />
         

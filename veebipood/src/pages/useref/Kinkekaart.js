@@ -74,7 +74,7 @@ function Kinkekaart() {
    //{"nimi": "Pakiautomaat", "hind": 3, "pilt": "PILT.jpg", "aktiivne": true}
    // ostukorvFailist.push({"nimi": "Kinkekaart" + kogus + " tk", "hind": summa * kogus, "pilt": "PILT.jpg", "aktiivne": true})
       ostukorvFailist.push({
-   //   "nimi": "Kinkekaart" + summa + "€..." + kogus + " tk",
+   //   "nimi": "Kinkekaart" + summa + "€" + kogus + " tk",
         "nimi": `Kinkekaart ${summa}€ - ${kogus} tk`, 
         "hind": summa * kogus, 
         "pilt": "PILT.jpg", 
@@ -96,11 +96,11 @@ function Kinkekaart() {
 
   return (
     <div>
-        <button className={summa === 20 ? "summa-aktiivne": "summa"} onClick={() => muudaSumma(20)}>20 £</button>
-        <button className={summa === 50 ? "summa-aktiivne": "summa"}onClick={() => muudaSumma(50)}>50 £</button>
-        <button className={summa === 100 ? "summa-aktiivne": "summa"}onClick={() => muudaSumma(100)}>100 £</button>
+        <button className={summa === 20 ? "summa-aktiivne": "summa"} onClick={() => muudaSumma(20)}>20 €</button>
+        <button className={summa === 50 ? "summa-aktiivne": "summa"}onClick={() => muudaSumma(50)}>50 €</button>
+        <button className={summa === 100 ? "summa-aktiivne": "summa"}onClick={() => muudaSumma(100)}>100 €</button>
 
-        <div>Kinkekaart {summa} £</div>
+        <div>Kinkekaart {summa} €</div>
 
         <br /><br />
 
@@ -123,7 +123,7 @@ function Kinkekaart() {
       {kogus !== 0 && <button onClick={nulli}>Tagasi nulli</button>}
       <div className={kogus >= 10 ? "kuldne" : undefined}>{kogus} pcs</div> */}
 
-        <div>Kokku: {summa*kogus} £</div>
+        <div>Kokku: {summa*kogus} €</div>
 
         <br /><br />
 

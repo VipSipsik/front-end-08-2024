@@ -11,6 +11,7 @@ function HaldaTooteid() {
   const hindRef = useRef();
   const piltRef = useRef();
   const aktiivneRef = useRef();
+  const otsinguRef = useRef();
 
   const kustuta = (index) => {
       tootedFailist.splice(index,1);
@@ -29,9 +30,16 @@ function HaldaTooteid() {
       uuendaTooted(tootedFailist.slice());
   }
 
+  const otsiToodetest = () => {
+    const vastus = tootedFailist.filter(toode => toode.nimi.includes(otsinguRef.current.value));
+    uuendaTooted(vastus);
+  }
 
   return (
     <div>
+      <div>Otsing</div>
+      <input ref={otsinguRef} onChange={otsiToodetest} type= "text" />
+        <br /><br />
       <label>Toote nimetus</label> <br />
       <input ref={nimiRef}  type="text" /> <br />
       <label>Toote hind</label> <br />

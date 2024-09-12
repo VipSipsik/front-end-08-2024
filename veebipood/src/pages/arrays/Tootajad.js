@@ -3,12 +3,16 @@
 // mitu tk välja näitatakse
   // tühjendamine
   // kui on tühi, siis anna sõnumiga teada, et ühtegi pole
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import tootajadFailist from "../../data/tootajad.json";
 import { Link } from 'react-router-dom';
 
 function Tootajad() {
+ 
+  const otsinguRef = useRef();
+ 
 
+  
    // Sorteeri
   // 1. A-Z
   // 2. Z-A
@@ -93,14 +97,31 @@ function Tootajad() {
     const vastus = tootajadFailist.filter(tootaja => tootaja.eesnimi.length % 2 === 0);
     muudaTootajad(vastus);
   }
+  
+  const arvutaTootajateEesnimeTahedKokku = () => {
+    let summa = 0;
+    tootajad.forEach(tootaja => summa = summa + tootaja.eesnimi.length);
+    return summa;
+   }
 
+ 
 
  // const uuenda = () => {
  //   uuendaTootajad([]);
  // }
+  const otsiTootajatest  = () => {
+  const vastus = tootajadFailist.filter(tootajad => 
+      String(tootajad.eesnimi).includes(otsinguRef.current.value));
+      muudaTootajad(vastus);
+  }
 
   return (
     <div>
+        <div>Otsing</div>
+        {/* <input type="text" ref={otsinguRef} onChange={otsiTootajatest} /> */}
+        <input ref={otsinguRef} onChange={otsiTootajatest} type= "text" />
+        <br /><br />
+        
 
        <br />
        <button onClick={reset}>Reset</button>
@@ -138,6 +159,9 @@ function Tootajad() {
           <button>Vt lähemalt</button>
          </Link>
         </div> )}
+
+        <div>{arvutaTootajateEesnimeTahedKokku()} tk</div>
+       
     </div>
   )
 }

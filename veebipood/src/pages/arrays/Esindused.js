@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import keskusedFailist from "../../data/keskused.json"
 import { Link } from "react-router-dom";
 // ../ <--- kausta võrra üles
@@ -13,7 +13,8 @@ function Esindused() {
     // muutuja, muutja  =        algväärtus
     const [linn, muudaLinn] = useState("Tallinn");
     const [keskused, muudaKeskused] = useState(keskusedFailist.slice());
-    
+    const otsinguRef = useRef();
+
     const reset = () => {
       muudaKeskused(keskusedFailist.slice());
     }
@@ -86,8 +87,18 @@ function Esindused() {
       return summa;
      }
 
+     const otsiEsindustest = () => {
+     const vastus = keskusedFailist.filter(keskus => keskus.nimi.includes(otsinguRef.current.value));
+     muudaKeskused(vastus);
+    }
+
   return (
     <div>
+         
+        <div>Otsing</div>
+        <input ref={otsinguRef} onChange={otsiEsindustest} type= "text" />
+        <br />
+
         <div>Hetkel on aktiivne linn: {linn}</div>
          <button className={linn === "Tallinn" ? "linn-aktiivne" : "linn"} onClick={() => muudaLinn("Tallinn")}>Tallinn</button>
          <button className={linn === "Tartu" ? "linn-aktiivne" : "linn"} onClick={() => muudaLinn("Tartu")}>Tartu</button>

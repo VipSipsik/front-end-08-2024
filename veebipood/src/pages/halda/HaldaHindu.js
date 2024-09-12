@@ -26,7 +26,7 @@ function HaldaHindu() {
 
     return (
      <div>
-
+        <div>Otsing</div>
         <input type="text" ref={otsinguRef} onChange={otsiHindadest} />
 
         

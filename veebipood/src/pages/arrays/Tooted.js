@@ -13,6 +13,7 @@ function Tooted() {
 
   const [tooted, uuendaTooted] = useState(tootedFailist.slice());
   const toodeRef = useRef();
+  const otsinguRef = useRef();
 
   const lisaOstukorvi = (uusToode) => {
     ostukorvJSON.push(uusToode);
@@ -82,8 +83,30 @@ function Tooted() {
 
   // Reset nupp
 
+  const arvutaHinnadKokku = () => {
+    let summa = 0;
+    tooted.forEach(toode => summa = summa + toode.hind);
+    return summa;
+   }
+
+   const arvutaToodeteNimetusteTahedKokku = () => {
+    let summa = 0;
+    tooted.forEach(toode => summa = summa + toode.nimi.length);
+    return summa;
+   }
+
+   const otsiToodetest  = () => {
+   const vastus = tootedFailist.filter(tooted => 
+        String(tooted.nimi).includes(otsinguRef.current.value));
+        uuendaTooted(vastus);
+    }
+
   return (
     <div>
+      <div>Otsing</div>
+      <input ref={otsinguRef} onChange={otsiToodetest} type= "text" />
+      <br /><br />
+
       <br />
       <button onClick={reset}>Reset</button>
       <br /><br />
@@ -122,6 +145,10 @@ function Tooted() {
         </Link>
         
        </div> )}
+
+       <h3>{arvutaHinnadKokku()} €</h3>
+       <div>{arvutaToodeteNimetusteTahedKokku()} tk</div>
+
     </div>
   )
 }

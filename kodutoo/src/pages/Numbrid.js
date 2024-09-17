@@ -21,14 +21,15 @@ function Numbrid() {
     }
 
     const sorteeriEsimeseNumbriJärgiTähestikuJärjekorras = () => {
-      numbrid.sort((a, b) => a.toString().localeCompare(b.toString()));
+      numbrid.sort((a,b) => a.number.toString().localeCompare(b.number.toString()));
     muudaNumbrid(numbrid.slice());
     }
 
     const sorteeriVastupidisesJärjekorrasEsimeseNriOsas = () => {
-      numbrid.sort((a, b) => b.toString().localeCompare(a.toString()));
+      numbrid.sort((a,b) => b.number.toString().localeCompare(a.number.toString()));
     muudaNumbrid(numbrid.slice());
     }
+
 
     const filtreeriSuuremadKui8 = () => {
       const vastus = numbridFailist.filter(number => number.number >=8);
@@ -36,7 +37,7 @@ function Numbrid() {
     }
 
     const filtreeriVäiksemadKui10 = () => {
-      const vastus = numbrid.filter(number => number.number <=10);
+      const vastus = numbridFailist.filter(number => number.number <=10);
       muudaNumbrid(vastus);
     }
 

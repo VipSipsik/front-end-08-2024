@@ -2,6 +2,7 @@
 import { Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import Tagasiside from './pages/Tagasiside';
+import TagasisideAndjad from './pages/TagasisideAndjad';
 
 function App() {
   return (
@@ -12,10 +13,14 @@ function App() {
       <Link to="/tagasiside">
       <button>Tagasisidede lehele</button>
       </Link>
+      <Link to= "/andjad">
+      <button>Vaata, kes tagasisidet on andnud!</button>
+      </Link><br /><br />
 
       <Routes>
         <Route path="/" exact element={<div>Tere</div>} /> 
         <Route path="/tagasiside" exact element={ < Tagasiside />} />
+        <Route path="/andjad" exact element={ <TagasisideAndjad /> }/> 
       </Routes>
     </div>
   );

@@ -14,7 +14,7 @@ function months() {
   return (
     <div>
         
-        { months.map(MUUTUJA => <div>{MUUTUJA}</div> )}
+        { months.map(months => <div>{months}</div> )}
     </div>
   )
 }

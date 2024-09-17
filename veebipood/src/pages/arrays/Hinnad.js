@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Hinnad() {
 
-  const [hinnad, muudaHinnad] = useState (hinnadFailist.slice());
+  const [hinnad, muudaHinnad] = useState(hinnadFailist.slice());
   const hindRef = useRef();
   const otsinguRef = useRef();
   // mitu tk välja näitatakse

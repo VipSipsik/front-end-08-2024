@@ -53,6 +53,12 @@ function Kinkekaart() {
      // if (emailViide.current === undefined) {
       if (showEmailRef.current.checked === false) {
         toast.info("Lisasid ostukorvi, aga ilma e-mailita!");
+        ostukorvFailist.push({
+               "nimi": `Kinkekaart ${summa}€ - ${kogus} tk`, 
+               "hind": summa * kogus, 
+               "pilt": "PILT.jpg", 
+               "aktiivne": true
+             });
         return;
       }
 

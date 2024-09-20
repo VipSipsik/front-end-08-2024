@@ -138,8 +138,9 @@ function Tooted() {
       {/* <button onClick={uuenda}>Tühjenda</button> */}
       {tooted.map((toode, index) => 
        <div key={toode.nimi}>
-        {toode.nimi} - {toode.hind} - {toode.pilt} - {toode.aktiivne}
-        <button onClick={() => lisaOstukorvi(toode)}>Lisa ostukorvi</button>
+        <img className={toode.aktiivne ? 'toote-pilt': "pilt-mitteaktiivne"} src={`/images/${toode.pilt}`} alt=""/>
+        {toode.nimi} - {toode.hind} - {toode.aktiivne}
+        {toode.aktiivne === true && <button onClick={() => lisaOstukorvi(toode)}>Lisa ostukorvi</button>}
         <Link to={"/toode/" + index}>
           <button>Vt lähemalt</button>
         </Link>

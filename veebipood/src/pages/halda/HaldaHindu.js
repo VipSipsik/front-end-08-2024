@@ -35,14 +35,30 @@ function HaldaHindu() {
         <input ref={hindRef}  type="text" /> <br />
         <button onClick={lisa}>Lisa</button> <br />
 
-        {hinnad.map((hind, index) => 
-         <div key={index}>
-          {hind.number} 
-            <button onClick={() => kustuta(index)}>x</button> 
-            <Link to={"/muuda-hind/" + index}>
-             <button>Muuda</button> 
-            </Link>
-         </div>)}
+        <table className="halda">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Number</th>
+              <th>Lisaja</th>
+              <th>Tegevused</th>
+            </tr>
+          </thead>
+           <tbody>
+             {hinnad.map((hind, index) => 
+            <tr key={index}>
+             <td>{index}</td>   
+             <td> {hind.number} </td>   
+             <td> {hind.lisaja} </td> 
+             <td> {hind.tegevused}  
+              <button onClick={() => kustuta(index)}>x</button> 
+              <Link to={"/muuda-hind/" + index}>
+               <button>Muuda</button> 
+              </Link>
+             </td>
+            </tr>)}
+          </tbody>
+        </table>
      </div>
   )
 }

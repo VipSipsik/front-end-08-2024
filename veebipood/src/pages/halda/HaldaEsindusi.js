@@ -54,15 +54,36 @@ function HaldaEsindusi() {
         <input ref={aadressRef}  type="text" /> <br />
         <button onClick={lisa}>Lisa</button> <br />
 
-        {keskused.map((keskus, index) => 
-         <div key={index}>
-          {index}. {keskus.nimi} - {keskus.tel} - {keskus.aadress} 
-            <button onClick={() => kustuta(index)}>x</button> 
-           {/* App.js:muuda-esindus/:jrknr */}
-           <Link to={"/muuda-esindus/" + index} >
-            <button>Muuda</button>
-          </Link>
-         </div>)}
+        <table className="halda">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nimi</th>
+              <th>Telefon</th>
+              <th>Aadress</th>
+              <th>Tegevused</th>
+            </tr>
+          </thead>
+          <tbody>
+           {/* <tfoot></tfoot> */}
+           {keskused.map((keskus, index) => 
+           <tr key={index}>
+            <td>{index}.</td>
+            <td>{keskus.nimi}</td>
+            <td>{keskus.tel}</td>
+            <td>{keskus.aadress}</td>
+            <td>
+             <button onClick={() => kustuta(index)}>x</button> 
+             {/* App.js:muuda-esindus/:jrknr */}
+             <Link to={"/muuda-esindus/" + index} >
+             <button>Muuda</button>
+             </Link>
+             </td>
+           </tr>)}
+          </tbody>
+        </table>
+
+
 
          <ToastContainer
           position="bottom-right"

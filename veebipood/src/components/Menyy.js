@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+
 function Menyy() {
+  const { t, i18n } = useTranslation();
+    
   return (
     <div>
     <Link to="avaleht">
@@ -8,12 +12,15 @@ function Menyy() {
     alt="" />
     </Link>
 
+    <button onClick={() => i18n.changeLanguage("et")}>EST</button>
+    <button onClick={() => i18n.changeLanguage("en")}>ENG</button>
+
     <Link to="kinkekaart">
-      <button className="nupp">Osta kinkekaart</button>
+      <button className="nupp">{t("nav.giftcards")}</button>
     </Link>
 
     <Link to="esindused">
-      <button className="nupp">Vaata ,meie esindusi</button>
+      <button className="nupp">{t("nav.shops")}</button>
     </Link>
 
     <Link to="lisa-toode">

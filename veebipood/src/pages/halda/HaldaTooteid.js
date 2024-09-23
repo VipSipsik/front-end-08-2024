@@ -46,7 +46,7 @@ function HaldaTooteid() {
       <input ref={hindRef}  type="text" /> <br />
       <label>Toote pilt</label> <br />
       <input ref={piltRef}  type="text" /> <br />
-      <label>Toote olemasolu</label> <br />
+      <label>Toote aktiivsus</label> <br />
       <input ref={aktiivneRef}  type="text" /> <br />
       
       <button onClick={lisa}>Lisa</button> <br />

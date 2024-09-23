@@ -55,15 +55,35 @@ function HaldaTooteid() {
       {tooted.length > 0 && <button onClick={() => uuendaTooted([])}>Tühjenda</button>}
       {tooted.length === 0 && <div>Ühtegi toodet pole!</div>}
 
-      
+      <table className="halda">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nimi</th>
+            <th>Hind</th>
+            <th>Pilt</th>
+            <th>Tegevused</th>
+          </tr>
+        </thead>
+        <tbody>
+
       {tooted.map((toode, index) => 
-        <div key={index}>
-         {index}. {toode.nimi} - {toode.hind} - {toode.pilt} - {toode.aktiivne}
+        <tr key={index}>
+         <td>{index}.</td>
+         <td>{toode.nimi}</td>
+         <td>{toode.hind}</td>
+         <td><img className='toote-pilt' src={`/images/${toode.pilt}`} alt=""/> 
+         </td>
+         <td>
           <button onClick={() => kustuta(index)}>x</button>       
           <Link to={"/muuda-toode/" + index}>
             <button>Muuda</button> 
           </Link>
-        </div>)}
+         </td>
+        </tr>)}
+          
+        </tbody>
+      </table>
     </div>
   )
 }

@@ -50,14 +50,33 @@ function HaldaTootajaid() {
       {tootajad.length > 0 && <button onClick={() => uuendaTootajad([])}>Tühjenda</button>}
       {tootajad.length === 0 && <div>Ühtegi töötajat pole!</div>}
 
+      <table classname="halda">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Eesnimi</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Tegevused</th>
+          </tr>
+        </thead>
+         <tbody>
+    
       {tootajad.map((tootaja, index) => 
-         <div key={index}>
-         {index}. {tootaja.eesnimi} - {tootaja.telefon} - {tootaja.email}
+          <tr key={index}>
+           <td>{index}.</td>
+           <td>{tootaja.eesnimi}</td> 
+           <td>{tootaja.telefon}</td> 
+           <td>{tootaja.email}</td> 
+           <td>
             <button onClick={() => kustuta(index)}>x</button> 
             <Link to={"/muuda-tootaja/" + index}>
             <button>Muuda</button>
             </Link>
-         </div>)}
+           </td>
+          </tr>)}
+         </tbody>
+      </table>
       
     </div>
   )

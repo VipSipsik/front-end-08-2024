@@ -1,9 +1,18 @@
 import React from 'react'; // node_modulest tuleb kui ei ole ./ või ../ ees
 import ReactDOM from 'react-dom/client';
-import 'react-toastify/dist/ReactToastify.css';
-import './index.css';
+import 'react-toastify/dist/ReactToastify.css'; // .tstfy.red {}
+import 'bootstrap/dist/css/bootstrap.min.css'; // .bt-red {}
+import 'leaflet/dist/leaflet.css';
+import './index.css'; // pead üles otsima, mis CSSi klassi nimetust kasutatakse
+//      ja kirjutama oma .css faili sisse TÄPSELt sama nime ja muutma siis värvi:
+//      .bt-red {background-color: #ff2800 !important }
+// alumine index.css kirjutab ülemise bootstrap.css üle.
+// !important - kasutada erandjuhtudel, sest kaotad võimaluse '
+// uuesti seda jõuga üle kirjutada
 import './i18n';
 import App from './App';
+
+
 // import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 

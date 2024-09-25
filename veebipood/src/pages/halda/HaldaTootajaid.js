@@ -60,8 +60,8 @@ function HaldaTootajaid() {
             <th>Tegevused</th>
           </tr>
         </thead>
+        
          <tbody>
-    
       {tootajad.map((tootaja, index) => 
           <tr key={index}>
            <td>{index}.</td>

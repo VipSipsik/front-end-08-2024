@@ -101,12 +101,53 @@ function Tooted() {
         uuendaTooted(vastus);
     }
 
+// .sort --> jätab alles sama koguse, aga teises järjekorras, muutmist ei toimu
+// .filter --> jätab alles vähendatud koguse, samas järjekorras, muutmist ei toimu
+// .map --> jätab alles sama kogus, samas järjekorras, aga igaüks muudetud
+
+  //  const muudaKoigiNimiSuureksPikk = () =>{
+  //   const vastus = tootedFailist.map(toode => ({
+  //     nimi: toode.nimi.toUpperCase(),
+  //     hind: toode.hind,
+  //     pilt: toode.pilt,
+  //     aktiivne: toode.aktiivne
+  //   }));
+  // uuendaTooted(vastus);
+  //  }
+
+   const muudaKoigiNimiSuureks = () =>{
+    const vastus = tootedFailist.map(toode => ({
+      ...toode, 
+      nimi: toode.nimi.toUpperCase(),
+    }));
+  uuendaTooted(vastus);
+   }
+   
+   //uuendaTooted([...tooted]); // koopia tegemiseks nagu .slice()
+    //kui koopiat ei tee, siis toimub muteerumine (originaali kallale minek) 
+    //      ehk muutus ilma et tuleksid uued väärtused
+    //      kood näeb seda kui lihtsat muudatust ja vaatab, 
+    //      et selle pärast pole vaja HTMLi muutma minna
+
+    // muteerivad (muudavad originaali):
+    // .push()
+    // .splice()
+    // .sort()
+
+    // ei muuda originaalset --> tema ette peab panema uue muutuja
+    // .filter()
+    // .map()
+// const vastus =
+   
+
   return (
     <div>
       <div>Otsing</div>
       <input ref={otsinguRef} onChange={otsiToodetest} type= "text" />
       <br /><br />
 
+      {/* <button onClick={muudaKoigiNimiSuureksPikk}>Muuda kõigi nimi suurteks tähtedeks</button> */}
+      <button onClick={muudaKoigiNimiSuureks}>Muuda kõigi nimi suurteks tähtedeks</button>
       <br />
       <button onClick={reset}>Reset</button>
       <br /><br />

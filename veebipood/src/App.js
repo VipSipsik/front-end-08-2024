@@ -7,7 +7,7 @@ import Esindused from './pages/arrays/Esindused';
 import LisaToode from './pages/useref/LisaToode';
 import Ostukorv from './pages/arrays/Ostukorv';
 import NotFound from './pages/usestate/NotFound';
-import Menyy from './components/Menyy';
+//import Menyy from './components/Menyy';
 import Seaded from './pages/usestate/Seaded';
 import Profiil from './pages/useref/Profiil';
 import LogiSisse from './pages/useref/LogiSisse';
@@ -31,6 +31,10 @@ import MuudaEsindus from './pages/muuda/MuudaEsindus';
 import MuudaHind from './pages/muuda/MuudaHind';
 import MuudaToode from './pages/muuda/MuudaToode';
 import MuudaTootaja from './pages/muuda/MuudaTootaja';
+import Meny from './components/Meny';
+
+import AdminHalda from './pages/halda/AdminHalda';
+import Shops from './pages/usestate/Shops';
 
 
 // kui on võimalus importida mitu asja, siis on {}
@@ -41,7 +45,7 @@ function App() {
     <div className="App">
       {/* HTMLis välja kommenteerimine ctrl + ä */}
 
-    <Menyy />
+    <Meny/>
 
 {/* localhost:3000/avaleht ---> siis näidatakse teksti "Olen avalehel" */}
 
@@ -77,6 +81,8 @@ function App() {
         <Route path='muuda-toode/:index' element={ <MuudaToode/> } />
         <Route path='muuda-tootaja/:index' element={ <MuudaTootaja/> } />
 
+        <Route path='admin' element={ <AdminHalda /> } />
+        <Route path='shops' element={ <Shops /> } />
         
       </Routes>
 

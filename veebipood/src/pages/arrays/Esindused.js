@@ -156,7 +156,7 @@ function Esindused() {
         
         {linn === "Narva" && <div>Fama</div>}
 
-        {linn === "Pärnu" && <div>Port Artur 2</div>}
+        {linn === "Pärnu" && <div>Port Artur 2</div>} <br />
 
           <div>Tähed kokku: {arvutaEsinduseTahedKokku()} tk</div>
           <div>Telefonid kokku: {arvutaEsinduseTelefonidKokku()}</div>

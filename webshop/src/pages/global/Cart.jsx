@@ -36,7 +36,7 @@ function Cart() {
     <div>{cart.map((product, index) =>
       <div key={index}>
        {index}. {product.id} - {product.title} - {product.price} - 
-       {product.description} - {product.category} - {product.image} - {product.rating} - 
+       {product.description} - {product.category} - {product.image} - 
        {product.rating.rate} - {product.rating.count}
         <img className='product-image' src={product.image} alt=""/>
         <button onClick={() => addNewProduct(product)}>Add product</button> 

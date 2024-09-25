@@ -3,9 +3,10 @@ import productsFromFile from "../../data/products.json";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useRef } from 'react';
-
+// Võta kogu lisamise kood ära MaintainProducts seest
+// Edit/Change nupu peale vajutades "/ ette "
 function MaintainProducts() {
-  const {products, setProducts} = useState(productsFromFile.slice());
+  const [products, setProducts] = useState(productsFromFile.slice());
 
   const idRef = useRef();
   const titleRef = useRef();
@@ -30,7 +31,7 @@ const addProduct = () => {
     "description": descriptionRef.current.value,
     "catergory": categoryRef.current.value,
     "image": imageRef.current.value,
-    "rating": ratingRef.current.value
+    "rating":  {"rate": ratingRef.current.value, "count": 0} 
   }
 );
   setProducts(productsFromFile.slice());
@@ -74,7 +75,7 @@ const SearchProducts = () => {
       {products.map((product, index) => 
         <div key={index}>
          {index}. {product.id} - {product.title} - {product.price} - {product.description}
-         {product.category} - {product.image} - {product.rating}
+         {product.category} - {product.image} - {product.rating.rate} - {product.rating.count}
           <button onClick={() => deleteProduct(index)}>x</button>       
           <Link to={"admin/edit-product/" + index}>
             <button>Change</button> 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+// Edit navigation barist maha 
 function NavigationBar() {
   return (
     <div>
@@ -48,7 +48,7 @@ function NavigationBar() {
         <Link to="maintain-categories" >
          <button className="btn">Maintain categories </button>
         </Link>
-        <Link to="maintain-products" >
+        <Link to="admin/maintain-products" >
          <button className="btn">Maintain products</button>
         </Link>
         <Link to="maintain-shops" >

@@ -13,7 +13,8 @@ function EditProduct() {
   const descriptionRef = useRef();
   const categoryRef = useRef();
   const imageRef = useRef();
-  const ratingRef = useRef();
+  const ratingRateRef = useRef();
+  const ratingCountRef = useRef();
  
 
   const edit = () => {
@@ -24,7 +25,8 @@ function EditProduct() {
     "description": descriptionRef.current.value,
     "category": categoryRef.current.value,
     "image": imageRef.current.value,
-    "rating": ratingRef.current.value
+    "rating-rate": ratingRateRef.current.value,
+    "rating-count": ratingCountRef.current.value
     }
   }
 
@@ -52,10 +54,13 @@ function EditProduct() {
       <label>Product image:</label> <br />
       <input type="text" ref={imageRef} defaultValue={found.image} /> <br />
       
-      <label>Product rating:</label> <br />
-      <input type="text" ref={ratingRef} defaultValue={found.rating} /> <br />
+      <label>Product rating rate:</label> <br />
+      <input type="text" ref={ratingRateRef} defaultValue={found.rating.rate} /> <br />
+
+      <label>Product rating count:</label> <br />
+      <input type="text" ref={ratingCountRef} defaultValue={found.rating.count} /> <br />
       
-      <Link to="/maintain-products">
+      <Link to="admin/maintain-products">
       <button onClick= {edit} >Edit</button> <br />
       </Link>
 

@@ -2,12 +2,18 @@ import React from 'react'
 import { useState } from 'react'
 import productsFromFile from "../../data/products.json"
 import cartFromFile from "../../data/cart.json";
+import { ToastContainer, toast } from 'react-toastify';
+//import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function HomePage() {
+
     const [products, setProducts] = useState(productsFromFile);
 
     const AddtoCart = (newProduct) => {
-        cartFromFile.push(newProduct);
+        cartFromFile.push(newProduct)
+        toast.success("Product added to cart!")
     }
 
     const sortAZ= () => {
@@ -46,6 +52,12 @@ function HomePage() {
         <button onClick={sortByHighestPrice}>High to Low</button>
         <button onClick={sortByRating}>Rating</button>
 
+            <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                theme="dark"
+            />
+            
         {products.map(product =>
          <div key={product.id}>
             <img style={{width: "100px"}} src={product.image} alt="" />
@@ -53,7 +65,7 @@ function HomePage() {
             <div>{product.price} </div>
             
             <button onClick={() => AddtoCart(product)}>Add to cart</button><br /><br />
-          
+
          </div>)}
     </div>
   )

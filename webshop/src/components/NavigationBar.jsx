@@ -1,60 +1,66 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import websiteLogo from '../images/webshop.png';
+
 // Edit navigation barist maha 
 function NavigationBar() {
   return (
-    <div>
+    <div className='navbar'>
+      <img className='website-logo' src={websiteLogo} alt="Logo" />
+
+      <div className='navbar-buttons'>
         <Link to=" ">
-         <button className="btn">Homepage</button>
+          <button className="btn">Homepage</button>
         </Link>
 
         <Link to="cart">
-         <button className="btn">Cart</button>
+          <button className="btn">Cart</button>
         </Link>
 
         <Link to="contact-us" >
-         <button className="btn">Contact</button>
+          <button className="btn">Contact</button>
         </Link>
 
         {/* <Link to="not-found" >
-         <button className="btn">Not found</button>
-        </Link> */}
+        <button className="btn">Not found</button>
+      </Link> */}
 
         <Link to="shops" >
-         <button className="btn">Our shops</button>
+          <button className="btn">Our shops</button>
         </Link>
-        
+
         {/* <Link to="single-product" >
-         <button className="btn">Single product</button>
-        </Link> */}
+        <button className="btn">Single product</button>
+      </Link> */}
 
 
         <Link to="login" >
-         <button className="btn">Login</button>
+          <button className="btn">Login</button>
         </Link>
         <Link to="signup" >
-         <button className="btn">Signup</button>
+          <button className="btn">Signup</button>
         </Link>
 
-        <Link to="add-product" >
-         <button className="btn">Add product</button>
+        {/* <Link to="admin/add-product" >
+        <button className="btn">Add product</button>
+      </Link> */}
+        <Link to="admin/admin-home" >
+          <button className="btn">Admin home</button>
         </Link>
-        <Link to="admin-home" >
-         <button className="btn">Admin home</button>
-        </Link>
-        <Link to="edit-product" >
-         <button className="btn">Edit product</button>
-        </Link>
-        <Link to="maintain-categories" >
-         <button className="btn">Maintain categories </button>
+        {/* <Link to="admin/edit-product" >
+        <button className="btn">Edit product</button>
+      </Link> */}
+        <Link to="admin/maintain-categories" >
+          <button className="btn">Maintain categories </button>
         </Link>
         <Link to="admin/maintain-products" >
-         <button className="btn">Maintain products</button>
+          <button className="btn">Maintain products</button>
         </Link>
-        <Link to="maintain-shops" >
-         <button className="btn">Maintain Shops</button>
+        <Link to="admin/maintain-shops" >
+          <button className="btn">Maintain Shops</button>
         </Link>
 
+      </div>
     </div>
   )
 }

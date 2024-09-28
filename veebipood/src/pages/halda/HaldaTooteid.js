@@ -26,10 +26,7 @@ function HaldaTooteid() {
     <div>
       <div>Otsing</div>
       <input ref={otsinguRef} onChange={otsiToodetest} type= "text" />
-        <br /><br />
-     
-      
-      
+        <br /><br />   
 
       <div> {tooted.length} toodet</div>
       {tooted.length > 0 && <button onClick={() => uuendaTooted([])}>Tühjenda</button>}

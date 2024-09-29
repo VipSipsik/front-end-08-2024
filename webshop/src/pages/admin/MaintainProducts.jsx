@@ -3,6 +3,7 @@ import productsFromFile from "../../data/products.json";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 // Võta kogu lisamise kood ära MaintainProducts seest
 // Edit/Change nupu peale vajutades "/ ette "
 function MaintainProducts() {
@@ -12,7 +13,9 @@ function MaintainProducts() {
   const deleteProduct = (index) => {
     productsFromFile.splice(index,1);
     setProducts(productsFromFile.slice());
+    toast.error("Product deleted")
   }
+
 
   const SearchProducts = () => {
     const found = productsFromFile.filter(product => product.title.includes(searchRef.current.value));
@@ -30,6 +33,12 @@ function MaintainProducts() {
 
       <div> {products.length} products</div>
       {products.length === 0 && <div>No products here!</div>}
+
+      <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                theme="dark"
+            />
 
       <table className="maintain">
         <thead>

@@ -36,10 +36,16 @@ function HomePage() {
         setProducts(products.slice());
     }
 
-    const sortByRating = () => {
-        products.sort((a,b) => a.rating - b.rating);
+    const sortByLowestRating = () => {
+        products.sort((a,b) => a.rating.rate - b.rating.rate);
         setProducts(products.slice());
     }
+
+    const sortByHighestRating = () => {
+        products.sort((a,b) => b.rating.rate - a.rating.rate);
+        setProducts(products.slice());
+    }
+
 
 
 
@@ -50,14 +56,15 @@ function HomePage() {
         <button onClick={sortZA}>Z-A</button>
         <button onClick={sortByLowestPrice}>Low to high</button>
         <button onClick={sortByHighestPrice}>High to Low</button>
-        <button onClick={sortByRating}>Rating</button>
+        <button onClick={sortByLowestRating}>Rating LtoH</button>
+        <button onClick={sortByHighestRating}>Rating HtoL</button>
 
             <ToastContainer
                 position="bottom-right"
                 autoClose={4000}
                 theme="dark"
             />
-            
+
         {products.map(product =>
          <div key={product.id}>
             <img style={{width: "100px"}} src={product.image} alt="" />

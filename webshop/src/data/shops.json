@@ -1,0 +1,10 @@
+[
+    {"name": "Ülemiste Centre", "tel": "555666776", "address": "Lennujaama 11"},
+    {"name":"Magistrali Centre", "tel": "555888773", "address": "Mustamäe 321" },
+    {"name":"Vesse Shop", "tel": "555654717", "address": "Vesse 167" },
+    {"name":"Kristiine Shopping Centre", "tel": "555764357", "address": "Endla 16" },
+    {"name":"Järveotsa", "tel": "552356477", "address": "Järve 87" },
+    {"name":"Rocca al Mare ", "tel": "575945677", "address": "Loomaaia 123" },
+    {"name":"Ämari", "tel": "550066787", "address": "Polügoni 821" }
+    
+]

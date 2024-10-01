@@ -1,18 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'react-toastify/dist/ReactToastify.css';
-import './index.css';
-import './i18n';
 import App from './App';
+import i18n from './i18n';
+import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+import { I18nextProvider } from 'react-i18next'
+import { Suspense } from 'react'
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-     <App />
+     <I18nextProvider i18n={i18n}>
+      <Suspense >
+       <App />
+      </Suspense>
+     </I18nextProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.querySelector('#root')
 );
 
 

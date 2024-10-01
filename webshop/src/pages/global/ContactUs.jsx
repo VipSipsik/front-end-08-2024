@@ -1,8 +1,10 @@
 import React, {useRef} from 'react'
 import emailjs from '@emailjs/browser'
+import { useTranslation } from 'react-i18next';
 
 
 export const ContactUs = () => {
+  const { t } = useTranslation();
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -17,13 +19,13 @@ export const ContactUs = () => {
 
   return (
     <form ref={form} onSubmit={sendEmail} >
-      <label>Name</label><br />
+      <label>{t("User name")}</label><br />
       <input type="text" name="user_name" /><br />
-      <label>Email</label><br />
+      <label>{t("User email")}</label><br />
       <input type="email" name="user_email" /><br />
-      <label>Message</label><br />
+      <label>{t("Message")}</label><br />
       <textarea name="message" /><br />
-      <input type="submit" value="Send" /><br />
+      <input type="submit" value={t("Send")} /><br />
     </form>
   )
 }

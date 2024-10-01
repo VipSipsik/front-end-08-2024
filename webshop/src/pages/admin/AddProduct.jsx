@@ -1,11 +1,12 @@
 import React from 'react'
 import { useRef } from 'react';
 import productsFromFile from "../../data/products.json";
+import { useTranslation } from 'react-i18next';
 
 // Võta kogu lisamise kood ära MaintainProducts sees
 // Edit navigation barist maha 
 function AddProduct() {
-
+  const { t } = useTranslation();
 
   const idRef = useRef();
   const titleRef = useRef();
@@ -33,22 +34,23 @@ function AddProduct() {
 
   return (
     <div>
-      <label>Product id</label> <br />
+      <label>{t("Product ID")}</label> <br />
       <input ref={idRef}  type="text" /> <br />
-      <label>Product title</label> <br />
+      <label>{t("Product title")}</label> <br />
       <input ref={titleRef}  type="text" /> <br />
-      <label>Product price</label> <br />
+      <label>{t("Product price")}</label> <br />
       <input ref={priceRef}  type="text" /> <br />
-      <label>Product image</label> <br />
+      <label>{t("Product image")}</label> <br />
       <input ref={imageRef}  type="text" /> <br />
-      <label>Product description</label> <br />
+      <label>{t("Product description")}</label> <br />
       <input ref={descriptionRef}  type="text" /> <br />
-      <label>Product category</label> <br />
+      <label>{t("Product category")}</label> <br />
       <input ref={categoryRef}  type="text" /> <br />
-      <label>Product rating</label> <br />
+      <label>{t("Product rating")}</label> <br />
       <input ref={ratingRef}  type="text" /> <br />
       
-      <button onClick={addProduct}>Add product</button> <br />
+      
+      <button onClick={addProduct}>{t("Add product")}</button> <br />
     </div>
   )
 }

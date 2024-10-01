@@ -1,8 +1,10 @@
 import React, { useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import productsFromFile from '../../data/products.json'
+import { useTranslation } from 'react-i18next';
 
 function EditProduct() {
+  const { t } = useTranslation();
 
   const {index} = useParams();
   const found = productsFromFile[index]; 
@@ -36,32 +38,32 @@ function EditProduct() {
 
   return (
     <div>
-      <label>Product id:</label> <br />
+      <label>{t("Product ID")}:</label> <br />
       <input type="text" ref={idRef} defaultValue={found.id} /> <br />
       
-      <label>Product title:</label> <br />
+      <label>{t("Product title")}:</label> <br />
       <input type="text" ref={titleRef} defaultValue={found.title} /> <br />
 
-      <label>Product price:</label> <br />
+      <label>{t("Product price")}:</label> <br />
       <input type="text" ref={priceRef} defaultValue={found.price} /> <br />
 
-      <label>Product description:</label> <br />
+      <label>{t("Product description")}:</label> <br />
       <input type="text" ref={descriptionRef} defaultValue={found.description} /> <br />
       
-      <label>Product category:</label> <br />
+      <label>{t("Product category")}:</label> <br />
       <input type="text" ref={categoryRef} defaultValue={found.category} /> <br />
       
-      <label>Product image:</label> <br />
+      <label>{t("Product image")}:</label> <br />
       <input type="text" ref={imageRef} defaultValue={found.image} /> <br />
       
-      <label>Product rating rate:</label> <br />
+      <label>{t("Product rating rate")}:</label> <br />
       <input type="text" ref={ratingRateRef} defaultValue={found.rating.rate} /> <br />
 
-      <label>Product rating count:</label> <br />
+      <label>{t("Product rating count")}:</label> <br />
       <input type="text" ref={ratingCountRef} defaultValue={found.rating.count} /> <br />
       
       <Link to="admin/maintain-products">
-      <button onClick= {edit} >Edit</button> <br />
+      <button onClick= {edit} >{t("Edit")}</button> <br />
       </Link>
 
     </div>

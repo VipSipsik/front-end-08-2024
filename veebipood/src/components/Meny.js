@@ -7,7 +7,7 @@ function Meny() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand as={Link} to="/tooted">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/tooted">Products</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

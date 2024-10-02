@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import tootedFailist from "../../data/tooted.json"
+import keskusedFailist from "../../data/keskused.json";
 
 function LisaToode() {
     const [sonum, muudaSonum] = useState("Lisa juurde üks toode");
@@ -8,6 +9,7 @@ function LisaToode() {
     const hindRef = useRef();
     const piltRef = useRef();
     const aktiivneRef = useRef();
+    const keskusRef = useRef();
    
     
 
@@ -30,6 +32,7 @@ function LisaToode() {
         "nimi": nimiRef.current.value,
         "hind": hindRef.current.value,
         "pilt": piltRef.current.value,
+        "keskus": keskusRef.current.value,
         "aktiivne": aktiivneRef.current.value
       }
     );
@@ -43,12 +46,17 @@ function LisaToode() {
         <div>{sonum}</div>
         <label>Toote nimetus</label> <br />
         <input ref={nimiRef}  type="text" /> <br />
-         <label>Toote hind</label> <br />
+        <label>Toote hind</label> <br />
         <input ref={hindRef}  type="text" /> <br />
         <label>Toote pilt</label> <br />
         <input ref={piltRef}  type="text" /> <br />
         <label>Toote aktiivsus</label> <br />
-        <input ref={aktiivneRef}  type="text" /> <br />
+        <input ref={aktiivneRef}  type="text" /> <br /><br />
+
+        <label>Toote keskus</label> <br />
+        <select ref={keskusRef} >
+          {keskusedFailist.map(keskus => <option>{keskus.nimi}</option>)}
+        </select> <br /><br />
         {/* <label>Toote nimi</label> <br />
         <input ref={nimiRef} type="text" /> <br />
         <button onClick={sisesta}>Sisesta</button> <br /> */}

@@ -35,7 +35,7 @@ function MaintainProducts() {
       </Link>
 
       <div> {products.length} {t("Products")}</div>
-      {products.length === 0 && <div>{t("No products here!")}</div>}
+      {products.length === 0 && <div>No products here!</div>}
 
       <ToastContainer
                 position="bottom-right"

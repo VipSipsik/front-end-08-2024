@@ -2,6 +2,7 @@ import React from 'react'
 import { useRef } from 'react';
 import productsFromFile from "../../data/products.json";
 import { useTranslation } from 'react-i18next';
+import { ToastContainer, toast } from 'react-toastify';
 
 // Võta kogu lisamise kood ära MaintainProducts sees
 // Edit navigation barist maha 
@@ -25,9 +26,10 @@ function AddProduct() {
       "description": descriptionRef.current.value,
       "catergory": categoryRef.current.value,
       "image": imageRef.current.value,
-      "rating":  {"rate": ratingRef.current.value, "count": 0} 
+      "rating":  {"rate": ratingRef.current.value, "count": 0}    
     }
   );
+  toast.success (<div>{t("Product added")}</div>)
    // ToDo: Do something after adding new product. currently no feedback
   }
 
@@ -51,6 +53,13 @@ function AddProduct() {
       
       
       <button onClick={addProduct}>{t("Add product")}</button> <br />
+
+      <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                theme="dark"
+            />
+
     </div>
   )
 }

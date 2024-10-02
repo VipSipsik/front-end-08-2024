@@ -24,6 +24,7 @@ function Cart() {
   const empty = () => {
     cartFromFile.splice(0);
     setCart(cartFromFile.slice());
+    toast.success("All products deleted from cart!")
   }
 
   const CalculatePrices = () => {

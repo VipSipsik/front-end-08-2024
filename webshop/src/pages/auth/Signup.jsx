@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Signup = () => {
@@ -11,6 +12,7 @@ const Signup = () => {
   const handleSignup = (e) => {
     e.preventDefault();
     console.log("Signup email:", email, "password:", password);
+    toast.success (<div>{t("Registered")}</div>)
   };
 
   return (
@@ -40,6 +42,12 @@ const Signup = () => {
         />
         <button type="submit">{t("Signup")}</button>
       </form>
+      
+      <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                theme="dark"
+            />
     </div>
   )
 }

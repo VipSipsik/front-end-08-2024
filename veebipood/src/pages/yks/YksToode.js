@@ -32,8 +32,8 @@ function YksToode() {
 
   return (
     <div>
-      <div>Järjekorranumber, mis on URLis: {tooteIndex} </div>
-      <div>Toode, millele klikiti: {leitud.nimi} </div>
+      <div>Index in URL: {tooteIndex} </div>
+      <div>Product selected: {leitud.nimi} </div>
       <div>Toote hind: {leitud.hind} </div>
       <div>Toote pilt: <img className='toote-pilt' src={`/images/${leitud.pilt}`} alt=""/> </div>   
       <div>Toode aktiivne: {leitud.aktiivne} </div>

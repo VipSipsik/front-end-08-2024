@@ -35,17 +35,35 @@ import Meny from './components/Meny';
 
 import AdminHalda from './pages/halda/AdminHalda';
 import Shops from './pages/usestate/Shops';
+import { useState } from 'react';
+import Tarnija from './pages/api/Tarnija';
 
 
 // kui on võimalus importida mitu asja, siis on {}
 // kui on võimalus importida ainult ühte asja, siis on ilma {}
 
 function App() {
+
+  const [dark, setDark] = useState(localStorage.getItem("tume-leht"));
+
+  const muudaTumedaks = () => {
+    setDark("true");
+    localStorage.setItem("tume-leht", "true");
+  }
+
+  const muudaHeledaks = () => {
+    setDark("false");
+    localStorage.setItem("tume-leht", "false");
+  }
+
   return (
-    <div className="App">
+    <div className={dark === "true" ? "App-dark" : "App"}>
+
       {/* HTMLis välja kommenteerimine ctrl + ä */}
 
     <Meny/>
+    <button onClick={muudaTumedaks}>Dark mode</button>
+    <button onClick={muudaHeledaks}>Light mode</button>
 
 {/* localhost:3000/avaleht ---> siis näidatakse teksti "Olen avalehel" */}
 
@@ -83,6 +101,9 @@ function App() {
 
         <Route path='admin' element={ <AdminHalda /> } />
         <Route path='shops' element={ <Shops /> } />
+        <Route path='tarnija' element={ <Tarnija /> } />
+        
+
         
       </Routes>
 

@@ -49,6 +49,7 @@ function HaldaTooteid() {
          <td>{index}.</td>
          <td>{toode.nimi}</td>
          <td>{toode.hind}</td>
+         <td><b>{toode.keskus}</b></td>
          <td><img className='toote-pilt' src={`/images/${toode.pilt}`} alt=""/> 
          </td>
          <td>

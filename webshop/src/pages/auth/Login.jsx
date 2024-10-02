@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
   const { t } = useTranslation();
@@ -9,6 +10,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    toast.success (<div>{t("Logged in")}</div>)
     // Login authentication logic
   };
 
@@ -33,6 +35,12 @@ const Login = () => {
         />
         <button type="submit">{t("Login")}</button>
       </form>
+
+      <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                theme="dark"
+            />
     </div>
   )
 }

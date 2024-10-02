@@ -41,6 +41,7 @@ function MuudaToode() {
       <label>Toote aktiivsus:</label> <br />
       <input type="text" ref={aktiivneRef} defaultValue={leitud.aktiivne} /> <br />
       
+
       <Link to="/halda-tooteid">
       <button onClick= {muuda} >Muuda</button> <br />
       </Link>

@@ -1,9 +1,9 @@
 [
-    {"nimi": "BMW", "hind": 35000, "pilt": "BMW-valge.jpg", "aktiivne": true},
-    {"nimi": "Bentley", "hind": 85000, "pilt": "Bentley-golden.jpg", "aktiivne": false},
-    {"nimi": "Nobe", "hind": 123000, "pilt": "Nobe-100GT-Electric-Vehicle.jpg", "aktiivne": true},
-    {"nimi": "Nissan", "hind": 90000, "pilt": "Nissan-punane.jpg", "aktiivne": true},
-    {"nimi": "Toyota", "hind": 55000, "pilt": "Tesla-white.jpg", "aktiivne": true},
-    {"nimi": "Tesla", "hind": 167000, "pilt": "Toyota-green.jpg", "aktiivne": false}
+    {"nimi": "BMW", "keskus":"","hind": 35000, "pilt": "BMW-valge.jpg", "aktiivne": true},
+    {"nimi": "Bentley", "keskus":"","hind": 85000, "pilt": "Bentley-golden.jpg", "aktiivne": false},
+    {"nimi": "Nobe", "keskus":"","hind": 123000, "pilt": "Nobe-100GT-Electric-Vehicle.jpg", "aktiivne": true},
+    {"nimi": "Nissan", "keskus":"","hind": 90000, "pilt": "Nissan-punane.jpg", "aktiivne": true},
+    {"nimi": "Toyota", "keskus":"","hind": 55000, "pilt": "Tesla-white.jpg", "aktiivne": true},
+    {"nimi": "Tesla", "keskus":"","hind": 167000, "pilt": "Toyota-green.jpg", "aktiivne": false}
    
 ]

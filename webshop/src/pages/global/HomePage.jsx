@@ -4,9 +4,9 @@ import productsFromFile from "../../data/products.json"
 import cartFromFile from "../../data/cart.json";
 import { ToastContainer, toast } from 'react-toastify';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import { useTranslation } from 'react-i18next';
-
+import Button from '@mui/material/Button';
 
 //import 'react-toastify/dist/ReactToastify.css';
 
@@ -57,12 +57,12 @@ function HomePage() {
 
     return (
         <div>
-            <button onClick={sortAZ}>{t("A-Z")}</button>
-            <button onClick={sortZA}>{t("Z-A")}</button>
-            <button onClick={sortByLowestPrice}>{t("Low to high")}</button>
-            <button onClick={sortByHighestPrice}>{t("High to Low")}</button>
-            <button onClick={sortByLowestRating}>{t("Rating LtoH")}</button>
-            <button onClick={sortByHighestRating}>{t("Rating HtoL")}</button>
+            <Button onClick={sortAZ}>{t("A-Z")}</Button>
+            <Button onClick={sortZA}>{t("Z-A")}</Button>
+            <Button onClick={sortByLowestPrice}>{t("Low to high")}</Button>
+            <Button onClick={sortByHighestPrice}>{t("High to Low")}</Button>
+            <Button onClick={sortByLowestRating}>{t("Rating LtoH")}</Button>
+            <Button onClick={sortByHighestRating}>{t("Rating HtoL")}</Button>
 
             <ToastContainer
                 position="bottom-right"
@@ -94,7 +94,7 @@ function HomePage() {
                             <td>{product.rating.rate}</td> 
                             <td>{product.rating.count}</td> 
                             <td>
-                            <Button onClick={() => AddtoCart(product)}>{t("Add to cart")}</Button><br /><br />
+                            <Button variant="contained" onClick={() => AddtoCart(product)}>{t("Add to cart")}</Button><br /><br />
                             </td>
                         </tr>)}
                 </tbody>

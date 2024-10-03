@@ -18,11 +18,10 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import NotFound from './pages/global/NotFound';
 
-import { useTranslation } from 'react-i18next'
 import React from 'react'
 
 function App() {
-  const { t } = useTranslation();
+ 
 
 
   return (

@@ -1,3 +1,27 @@
 {
-    "Homepage": "Test1"
+    "page-not-found": "Lapa nav atrasta",
+    "Cart": "Grozs",
+    "Homepage": "Mājaslapa",
+    "Contact": "Sazinieties ar mums",
+    "Shops": "Mūsu veikali",
+    "Login": "Pieteikšanās",
+    "Signup": "Reģistrēšanās",
+    "Signing up": "",
+    "Maintain": "Uzturēt",
+    "Logging in": "",
+    "Enter email": "",
+    "Enter password": "",
+    "Product ID": "Produkta ID",
+    "Product title": "Produkta nosaukums",
+    "Product price": "Produkta cena",
+    "Product image": "Produkta attēls",
+    "Product description": "Produkta apraksts",
+    "Product category": "Produkta kategorija",
+    "Product rating": "Produkta vērtējums",
+    "Product rating rate": "Vērtējuma likme",
+    "Product rating count": "Vērtējumu skaits",
+    "Add product": "Pievienot produktu",
+    "Edit product": "Rediģēt produktu",
+    "Delete product": "Dzēst preci",
+    "Edit": "Rediģēt"
 }

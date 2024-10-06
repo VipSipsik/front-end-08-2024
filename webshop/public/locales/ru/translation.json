@@ -1,3 +1,27 @@
 {
-    "Homepage": "Test2"
+    "page-not-found": "Страница не найдена",
+    "Cart": "Корзина",
+    "Homepage": "Домашняя страница",
+    "Contact": "Свяжитесь c нами",
+    "Shops": "Наши магазины",
+    "Login": "Логин",
+    "Signup": "Зарегистрируйтесь",
+    "Signing up": "",
+    "Maintain": "Поддерживайте",
+    "Logging in": "",
+    "Enter email": "Enter email",
+    "Enter password": "Enter password",
+    "Product ID": "ID продукта",
+    "Product title": "Название продукта",
+    "Product price": "Цена",
+    "Product image": "Изображение продукта",
+    "Product description": "Описание продукта",
+    "Product category": "Категория продукта",
+    "Product rating": "Рейтинг продукции",
+    "Product rating rate": "Скорость подъема",
+    "Product rating count": "Счетчик рейтов",
+    "Add product": "Добавить продукт",
+    "Edit product": "Редактировать продукт",
+    "Delete product": "Удалить продукт",
+    "Edit": "Редактировать"
 }

@@ -11,6 +11,26 @@ function NavigationBar() {
   const { t, i18n } = useTranslation();
   var section = t('section', { returnObjects: true }) // Return the array from my local JSON file
 
+  const changeLanguageEt = () => {
+    i18n.changeLanguage("et");
+    localStorage.setItem("language", "et");
+  }
+
+  const changeLanguageEn = () => {
+    i18n.changeLanguage("en");
+    localStorage.setItem("language", "en");
+  }
+
+  const changeLanguageRus = () => {
+    i18n.changeLanguage("ru");
+    localStorage.setItem("language", "ru");
+  }
+
+  const changeLanguageLv = () => {
+    i18n.changeLanguage("lv");
+    localStorage.setItem("language", "lv");
+  }
+
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
@@ -28,14 +48,15 @@ function NavigationBar() {
             <Nav.Link as={Link} to="/admin">{t("Maintain")}</Nav.Link>
           </Nav>
           <Nav>
+          <button onClick={changeLanguageEt}>EST</button>
+          <button onClick={changeLanguageEn}>ENG</button>
+          <button onClick={changeLanguageRus}>RUS</button>
+          <button onClick={changeLanguageLv}>LV</button>
             <Nav.Link as={Link} to="/signup">{t("Signup")}</Nav.Link>
             <Nav.Link as={Link} to="/login">{t("Login")}</Nav.Link>
           </Nav>
           <Nav>
-          <button onClick={() => i18n.changeLanguage("et")}>EST</button>
-          <button onClick={() => i18n.changeLanguage("en")}>ENG</button>
-          <button onClick={() => i18n.changeLanguage("ru")}>RUS</button>
-          <button onClick={() => i18n.changeLanguage("lv")}>LV</button>
+          
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,46 +1,69 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
-import cartFromFile from "../../data/cart.json";
+// import cartFromFile from "../../data/cart.json";
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
+import DeliveryDestination from '../api/DeliveryDestination';
+
+
 
 function Cart() {
   const { t } = useTranslation();
-  const [cart, setCart] = useState(cartFromFile.slice());
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
+
+  const [products, setProducts] = useState([]);
+
+    // useEffect(() => {
+    //    fetch('https://fakestoreapi.com/products')
+    //    .then(response => response.json())
+    //    .then(json => setProducts(json)) 
+    // }, []);
 
   const addNewProduct = (newProduct) => {
-    cartFromFile.push(newProduct);
-    setCart(cartFromFile.slice());
+    cart.push(newProduct);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setCart(cart.slice());
     toast.success("Product added to cart!")
   }
 
+  const addPackageDelivery = () => {
+    // muudaOstukorv(["Coca", "Fanta", "Sprite", "Red bull"])
+    cart.push({ "name": "package-destination", "price": 3, "picture": "image.jpg", "active": true });
+   // ({ "name": "package-destination", "price": 3, "picture": "image.jpg", "active": true })
+    localStorage.setItem("cart", JSON.stringify(cart)); // salvestuseks
+    setCart(cart.slice());
+  }
+
   const deleteProduct = (index) => {
-    cartFromFile.splice(index, 1);
-    setCart(cartFromFile.slice());
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setCart(cart.slice());
     toast.success("Product deleted from cart!")
   }
 
   const empty = () => {
-    cartFromFile.splice(0);
-    setCart(cartFromFile.slice());
+    cart.splice(0);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setCart(cart.slice());
     toast.success("All products deleted from cart!")
   }
 
   const CalculatePrices = () => {
     let total = 0;
     cart.forEach(product => total = total + product.price);
-
     return total;
   }
 
   return (
     <div>
+
       <ToastContainer
         position="bottom-right"
         autoClose={4000}
         theme="dark"
       />
+
       <br />
       <table className='cart'>
         <thead>
@@ -57,7 +80,7 @@ function Cart() {
           </tr>
         </thead>
         <tbody>
-          {cart.map((product, index) =>
+          {products.map((product, index) =>
             <tr key={index}>
               <td>{index}. </td>
               <td>{product.title}</td>
@@ -78,7 +101,9 @@ function Cart() {
 
       </div>
 
-      <div>{cart.length} {t("pcs")}</div>
+
+      {cart.length > 0 && <div>{t("Total")}: {cart.length} {t("pcs")}</div>}
+
 
       {cart.length === 0 &&
         <div>
@@ -87,6 +112,10 @@ function Cart() {
         </div>
       }
 
+      {cart.length > 0 && <button onClick={addPackageDelivery}>Add package delivery to the end</button>}
+
+      {cart.length > 0 && <DeliveryDestination />} <br />
+      
       <div> {t("Total")}: {CalculatePrices()} €</div> <br />
       {cart.length > 0 && <button className='delete-button' onClick={empty}>{t("Delete all items from cart")}</button>}
 

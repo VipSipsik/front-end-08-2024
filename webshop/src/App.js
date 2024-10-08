@@ -18,16 +18,29 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import NotFound from './pages/global/NotFound';
 
-import React from 'react'
+import React, { useState } from 'react'
+import Supplier from './pages/api/Supplier';
 
 function App() {
- 
+  const [dark, setDark] = useState(localStorage.getItem("dark-page"));
+  
+  const changeToDarkMode = () => {
+    setDark("true");
+    localStorage.setItem("dark-page", "true");
+  }
 
+  const changeToLightMode = () => {
+    setDark("false");
+    localStorage.setItem("dark-page", "false");
+  }
 
   return (
-    <div className="App">
-      <NavigationBar />
+    <div className={dark === "true" ? "App-dark" : "App"}>
+      <button onClick={changeToLightMode}>Light mode</button>
+      <button onClick={changeToDarkMode}>Dark mode</button>
 
+      <NavigationBar />
+      
       <Routes>
         <Route path='' element={<HomePage />} />
         <Route path='/contact-us' element={<ContactUs />} />
@@ -46,6 +59,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
 
         <Route path='*' element={<NotFound />} />
+        <Route path='/supplier' element={<Supplier/>} />
 
       </Routes>
       {/* 
@@ -58,6 +72,8 @@ function App() {
             </React.Fragment>
           )
         })} */}
+
+        
 
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import productsFromFile from "../../data/products.json"
-import cartFromFile from "../../data/cart.json";
+// import cartFromFile from "../../data/cart.json";
 import { ToastContainer, toast } from 'react-toastify';
 import Table from 'react-bootstrap/Table';
 // import Button from 'react-bootstrap/Button';
@@ -17,10 +17,20 @@ function HomePage() {
 
     const [products, setProducts] = useState(productsFromFile);
 
+
+
     const AddtoCart = (newProduct) => {
-        cartFromFile.push(newProduct)
-        toast.success (<div>{t("Product added to cart")}</div>)
+        //cartFromFile.push(newProduct);
+        const cartLocalStorage = JSON.parse(localStorage.getItem("cart")) || [];
+        cartLocalStorage.push(newProduct);
+        localStorage.setItem("cart", JSON.stringify(cartLocalStorage));
+
+        toast.success(<div>{t("Product added to cart")}</div>)
     }
+
+
+
+
 
     const sortAZ = () => {
         products.sort((a, b) => a.title.localeCompare(b.title, "en"));
@@ -84,17 +94,17 @@ function HomePage() {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map((product)=>
-                        <tr key={product.id}>                         
+                    {products.map((product) =>
+                        <tr key={product.id}>
                             <td> <img style={{ width: "100px" }} src={product.image} alt="" /></td>
                             <td>{product.title} </td>
                             <td>{product.price} </td>
                             <td>{product.description}</td>
                             <td>{product.category}</td>
-                            <td>{product.rating.rate}</td> 
-                            <td>{product.rating.count}</td> 
+                            <td>{product.rating.rate}</td>
+                            <td>{product.rating.count}</td>
                             <td>
-                            <Button variant="contained" onClick={() => AddtoCart(product)}>{t("Add to cart")}</Button><br /><br />
+                                <Button variant="contained" onClick={() => AddtoCart(product)}>{t("Add to cart")}</Button><br /><br />
                             </td>
                         </tr>)}
                 </tbody>

@@ -1,0 +1,30 @@
+.avatar-image {
+    height: 75px;
+
+}
+
+td:first-child {
+    color:darkgreen;
+    font-weight: bold;
+}
+
+/* td:nth-child(2) {   
+    font-weight: bold;
+} */
+
+td.low-quantity {
+    color: red;
+}
+
+.btn {
+    background-color: aqua;
+    color: black;
+}
+
+.btn-danger {
+    background-color: lightcoral;
+}
+
+/* .btn-success:hover {
+    background-color: #0b5ed7;  
+} */

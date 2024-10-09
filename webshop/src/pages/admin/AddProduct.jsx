@@ -1,13 +1,24 @@
 import React from 'react'
 import { useRef } from 'react';
-import productsFromFile from "../../data/products.json";
+// import productsFromFile from "../../data/products.json";
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 // Võta kogu lisamise kood ära MaintainProducts sees
 // Edit navigation barist maha 
 function AddProduct() {
   const { t } = useTranslation();
+
+  const [products, setProducts] = useState([]);
+  const url = "https://mirjam-webshop-example-default-rtdb.europe-west1.firebasedatabase.app/products.json"
+  
+  useEffect(() => {
+      fetch(url)
+      .then(res => res.json())
+      .then(json => setProducts(json || []));
+  }, []);
 
   const idRef = useRef();
   const titleRef = useRef();
@@ -18,7 +29,7 @@ function AddProduct() {
   const ratingRef = useRef();
   
   const addProduct = () => {
-    productsFromFile.push(
+    products.push(
     {
       "id": idRef.current.value,
       "title": titleRef.current.value,
@@ -29,7 +40,8 @@ function AddProduct() {
       "rating":  {"rate": ratingRef.current.value, "count": 0}    
     }
   );
-  toast.success (<div>{t("Product added")}</div>)
+  toast.success (t("Product added"))
+  fetch(url, { method: "PUT", body: JSON.stringify(products)});
    // ToDo: Do something after adding new product. currently no feedback
   }
 

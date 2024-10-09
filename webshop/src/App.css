@@ -56,10 +56,10 @@ td, th {
   background-color: lightseagreen;
 }
 
-.navbar {
+/* .navbar {
   margin-left: 10%;
   margin-right: 30%;
-}
+} */
 
 .map {
   height: 400px;
@@ -67,4 +67,32 @@ td, th {
   border-radius: 15px;
 }
 
+.lang {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 5px;
+}
 
+
+.lang:active {
+  padding: 1px;
+}
+
+.App-dark .table {
+  --bs-table-bg: black;
+  --bs-table-color: white; 
+  --bs-table-hover-color: white; 
+  --bs-table-hover-bg: darkgreen; 
+}
+
+.App-dark .bg-body-tertiary {
+background-color: black !important; 
+--bs-navbar-color: white;
+}
+
+.App-dark .navbar-toggler {
+  color: white;
+  border-color: white;
+
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react'
 // import cartFromFile from "../../data/cart.json";
 import { Link } from 'react-router-dom'
@@ -12,7 +12,7 @@ function Cart() {
   const { t } = useTranslation();
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
 
-  const [products, setProducts] = useState([]);
+  
 
     // useEffect(() => {
     //    fetch('https://fakestoreapi.com/products')
@@ -29,8 +29,8 @@ function Cart() {
 
   const addPackageDelivery = () => {
     // muudaOstukorv(["Coca", "Fanta", "Sprite", "Red bull"])
-    cart.push({ "name": "package-destination", "price": 3, "picture": "image.jpg", "active": true });
-   // ({ "name": "package-destination", "price": 3, "picture": "image.jpg", "active": true })
+    cart.push({ "title": "package-destination", "price": 3, "image": "image.jpg", "active": true });// VÕTMED SAMAKS mis toodetel
+   // ({ "name": "package-destination", "price": 3, "image": "image.jpg", "active": true })
     localStorage.setItem("cart", JSON.stringify(cart)); // salvestuseks
     setCart(cart.slice());
   }
@@ -80,7 +80,7 @@ function Cart() {
           </tr>
         </thead>
         <tbody>
-          {products.map((product, index) =>
+          {cart.map((product, index) =>
             <tr key={index}>
               <td>{index}. </td>
               <td>{product.title}</td>

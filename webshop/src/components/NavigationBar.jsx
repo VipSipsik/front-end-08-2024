@@ -5,11 +5,14 @@ import { useTranslation } from 'react-i18next';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import englishflag from '../images/united-kingdom.png';
+import darkImage from '../images/dark.png'
+import lightImage from '../images/light.png'
 
 // Edit navigation barist maha 
-function NavigationBar() {
+function NavigationBar(props) {
   const { t, i18n } = useTranslation();
-  var section = t('section', { returnObjects: true }) // Return the array from my local JSON file
+
 
   const changeLanguageEt = () => {
     i18n.changeLanguage("et");
@@ -34,11 +37,11 @@ function NavigationBar() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
+      
         
-        <img src={websiteLogo}
-          width="200" height="auto"
-          alt="Logo" />
-        <Navbar.Brand as={Link} to=" ">{t("Homepage")}</Navbar.Brand>
+        <Navbar.Brand as= {Link} to=  "/"><img src={websiteLogo}
+          width="150" height="auto"
+          alt="Logo" /> </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -48,12 +51,15 @@ function NavigationBar() {
             <Nav.Link as={Link} to="/admin">{t("Maintain")}</Nav.Link>
           </Nav>
           <Nav>
+            <img className='lang' onClick={changeLanguageEn} src={englishflag} alt=''/>
           <button onClick={changeLanguageEt}>EST</button>
           <button onClick={changeLanguageEn}>ENG</button>
           <button onClick={changeLanguageRus}>RUS</button>
           <button onClick={changeLanguageLv}>LV</button>
             <Nav.Link as={Link} to="/signup">{t("Signup")}</Nav.Link>
             <Nav.Link as={Link} to="/login">{t("Login")}</Nav.Link>
+            {props.dark === "true" && <img className="lang" src={lightImage} onClick={props.changeToLightMode} alt=''/>}
+            {props.dark === "false" && <img className="lang" src={darkImage} onClick={props.changeToDarkMode} alt=''/>}
           </Nav>
           <Nav>
           

@@ -21,8 +21,9 @@ import NotFound from './pages/global/NotFound';
 import React, { useState } from 'react'
 import Supplier from './pages/api/Supplier';
 
+
 function App() {
-  const [dark, setDark] = useState(localStorage.getItem("dark-page"));
+  const [dark, setDark] = useState(localStorage.getItem("dark-page")||"false");
   
   const changeToDarkMode = () => {
     setDark("true");
@@ -36,10 +37,12 @@ function App() {
 
   return (
     <div className={dark === "true" ? "App-dark" : "App"}>
-      <button onClick={changeToLightMode}>Light mode</button>
-      <button onClick={changeToDarkMode}>Dark mode</button>
-
-      <NavigationBar />
+      
+      <NavigationBar 
+      dark={dark}
+      changeToDarkMode={changeToDarkMode}
+      changeToLightMode={changeToLightMode}
+      />
       
       <Routes>
         <Route path='' element={<HomePage />} />
@@ -61,19 +64,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
         <Route path='/supplier' element={<Supplier/>} />
 
-      </Routes>
-      {/* 
-      {section &&
-        section.length > 0 &&
-        section.map(item => {
-          return (
-            <React.Fragment key={item.title}>
-              <SectionItem item={item} />
-            </React.Fragment>
-          )
-        })} */}
-
-        
+      </Routes>        
 
     </div>
   );

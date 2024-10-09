@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
-import productsFromFile from "../../data/products.json"
+// import productsFromFile from "../../data/products.json"
 // import cartFromFile from "../../data/cart.json";
 import { ToastContainer, toast } from 'react-toastify';
 import Table from 'react-bootstrap/Table';
 // import Button from 'react-bootstrap/Button';
 import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
+import { useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 
 //import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,8 +17,14 @@ import Button from '@mui/material/Button';
 function HomePage() {
     const { t } = useTranslation();
 
-    const [products, setProducts] = useState(productsFromFile);
-
+    const [products, setProducts] = useState([]);
+    const url = "https://mirjam-webshop-example-default-rtdb.europe-west1.firebasedatabase.app/products.json"
+    
+    useEffect(() => {
+        fetch(url)
+        .then(res => res.json())
+        .then(json => setProducts(json || []));
+    }, []);
 
 
     const AddtoCart = (newProduct) => {
@@ -63,7 +71,9 @@ function HomePage() {
     }
 
 
-
+    if (products.length === 0) {
+       return < Spinner/>
+    }
 
     return (
         <div>

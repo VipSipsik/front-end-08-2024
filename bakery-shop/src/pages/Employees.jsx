@@ -17,9 +17,9 @@ function Employees() {
   // TODO: Load data from backend service
   useEffect(() => sync(false), []);
 
-  const sync = (forceSync = true) =>{
+  const sync = (forceSync = true) => {
     const storedEmployees = localStorage.getItem('employees');
-    if(!storedEmployees || forceSync) {
+    if (!storedEmployees || forceSync) {
       fetch('https://reqres.in/api/users')
         .then(response => response.json())
         .then(json => {
@@ -32,36 +32,36 @@ function Employees() {
       setEmployees(JSON.parse(storedEmployees));
     }
   }
- 
+
   const validateFields = () => {
     // TODO - Done: Add validations
-    if(!isNumeric(idRef.current.value)){
+    if (!isNumeric(idRef.current.value)) {
       toast.error('Incorrect ID');// toast error
       return false;
     }
 
-    if(!isAlpha(firstNameRef.current.value)){
-      toast.error('Incorrect first name');// toast error
+    if (!isAlpha(firstNameRef.current.value)) {
+      toast.error('Incorrect first name');
       return false;
     }
 
-    if(!isAlpha(lastNameRef.current.value)){
-      toast.error('Incorrect last name');// toast error
+    if (!isAlpha(lastNameRef.current.value)) {
+      toast.error('Incorrect last name');
       return false;
     }
 
-    if(!isEmail(emailRef.current.value)){
-      toast.error('Incorrect email');// toast error
+    if (!isEmail(emailRef.current.value)) {
+      toast.error('Incorrect email');
       return false;
     }
 
-    if(!isURL(avatarRef.current.value)){
-      toast.error('Incorrect avatar URL');// toast error
+    if (!isURL(avatarRef.current.value)) {
+      toast.error('Incorrect avatar URL');
       return false;
     }
 
-    if(employees.find(employee => employee.id === Number(idRef.current.value))){
-      toast.error('Employee with this ID already exists!');// toast error
+    if (employees.find(employee => employee.id === Number(idRef.current.value))) {
+      toast.error('Employee with this ID already exists!');
       return false;
     }
 
@@ -69,16 +69,16 @@ function Employees() {
   }
 
   const addNewEmployee = () => {
-    if(!validateFields()){
+    if (!validateFields()) {
       return; // katkestab funktsiooni töö
     }
 
-    const newEmployee = { 
-      id: Number(idRef.current.value), 
-      email: emailRef.current.value, 
-      first_name: firstNameRef.current.value, //'George', 
-      last_name: lastNameRef.current.value,  //'Bluth', 
-      avatar: avatarRef.current.value 
+    const newEmployee = {
+      id: Number(idRef.current.value),
+      email: emailRef.current.value,
+      first_name: firstNameRef.current.value,
+      last_name: lastNameRef.current.value,
+      avatar: avatarRef.current.value
     }
     // TODO - Done: Add an employee to the table
     employees.push(newEmployee)
@@ -86,62 +86,63 @@ function Employees() {
     setEmployees(employees.slice());
     toast.success("Employee added!");
   }
-
+  // TODO: Delete an employee from the table
   const deleteEmployee = (index) => {
     employees.splice(index, 1);
     localStorage.setItem('employees', JSON.stringify(employees));
     setEmployees(employees.slice());
     toast.success("Employee deleted!")
-    // TODO: Delete an employee from the table
+
   }
 
-  return (<div>
-    <ToastContainer
-      position="bottom-right"
-      autoClose={4000}
-      theme="dark"
-    />
+  return (
+    <div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        theme="dark"
+      />
 
-    <div className="container">
-      <h2 className="mb-4">Employees</h2>
-      <Table className="table table-hover table-bordered table-sortable">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Avatar</th>
-            {/* <!-- TODO: Add a column for an avatar --> */}
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          {employees.map((employee, index) =>
-            <tr key={employee.id}>
-              <td>{employee.id}</td>
-              <td>{employee.first_name} {employee.last_name}</td>
-              <td>{employee.email}</td>
-              <img className="avatar-image" src={employee.avatar} alt={`${employee.first_name}'s avatar`} />
-              <td><Button type="button" variant="danger" onClick={() => deleteEmployee(index)}>Delete</Button></td>
+      <div className="container">
+        <h2 className="mb-4">Employees</h2>
+        <Table className="table table-hover table-bordered table-sortable">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Avatar</th>
+              {/* <!-- TODO: Add a column for an avatar --> */}
+              <th scope="col">Actions</th>
             </tr>
-          )}
+          </thead>
+          <tbody>
 
-          <tr className="input-row">
-            <td><input ref={idRef} type="text" placeholder="ID" className="form-control" /></td>
-            <td><input ref={firstNameRef} type="text" placeholder="First name" className="form-control" />
-            <input ref={lastNameRef} type="text" placeholder="Last name" className="form-control" />
-            </td>
-            <td><input ref={emailRef}  type="text" placeholder="Email" className="form-control" /></td>
-            <td><input ref={avatarRef}  type="text" placeholder="Avatar URL" className="form-control" /></td>
-            <td><Button type="submit" variant="success" onClick={addNewEmployee}>Add employee</Button></td>
-          </tr>
-        </tbody>
-      </Table>
-      <td><Button type="submit" variant="success" onClick={sync}>Sync with API</Button></td>
+            {employees.map((employee, index) =>
+              <tr key={employee.id}>
+                <td>{employee.id}</td>
+                <td>{employee.first_name} {employee.last_name}</td>
+                <td>{employee.email}</td>
+                <img className="avatar-image" src={employee.avatar} alt={`${employee.first_name}'s avatar`} />
+                <td><Button type="button" variant="danger" onClick={() => deleteEmployee(index)}>Delete</Button></td>
+              </tr>
+            )}
+
+            <tr className="input-row">
+              <td><input ref={idRef} type="text" placeholder="ID" className="form-control" /></td>
+              <td><input ref={firstNameRef} type="text" placeholder="First name" className="form-control" />
+                <input ref={lastNameRef} type="text" placeholder="Last name" className="form-control" />
+              </td>
+              <td><input ref={emailRef} type="text" placeholder="Email" className="form-control" /></td>
+              <td><input ref={avatarRef} type="text" placeholder="Avatar URL" className="form-control" /></td>
+              <td><Button type="submit" variant="success" onClick={addNewEmployee}>Add employee</Button></td>
+            </tr>
+          </tbody>
+        </Table>
+        <td><Button type="submit" variant="success" onClick={sync}>Sync with API</Button></td>
       </div>
 
-  </div>)
+    </div>)
 }
 
 export default Employees;

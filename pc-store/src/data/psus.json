@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "name" : "Xilence XN052 500W ATX2.3",
+        "product_code": "CR-1400 ARGB Black",
+        "price":"340",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "depth": 120,
+        "image_url": "Xilence_XN052_500W_ATX2.3.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/toiteplokid-psu/case-psu-atx23-500wxn052-xilence-1009286"
+    },
+
+    {
+        "id": 2,
+        "name" : "GIGABYTE GP-UD1000GM 1000W 80+ Gold",
+        "product_code": "GP-UD1000GM",
+        "price":"340",
+        "weight": "596",
+        "color": "black",
+        "height": 25,
+        "width": 120,
+        "depth": 120,
+        "image_url": "GIGABYTE_1000W_80+_Gold.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/toiteplokid-psu/modular-power-supply-ud1000gm-1000w-80plus-gold-atx-1128417"
+    },
+    {
+        "id": 3,
+        "name" : "GIGABYTE GP-UD850GM PG5 850W 80+ Gold",
+        "product_code": "GP-UD850GMPG5",
+        "price":"340",
+        "weight": "1000",
+        "color": "black",
+        "height": 155,
+        "width": 190,
+        "depth": 120,
+        "image_url": "GIGABYTE_850W_80+_Gold.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/toiteplokid-psu/gigabyte-gp-ud1000gm-pg5-850w-80-gold-1237981"
+    },
+    {
+        "id": 4,
+        "name" : "ASUS ROG STRIX power supply unit 850 W 20-pin ATX ATX Black",
+        "product_code": "R-AK500-BKNNMT-G",
+        "price":"340",
+        "weight": "1000",
+        "color": "black",
+        "height": 158,
+        "width": 190,
+        "depth": 120,
+        "image_url": "ASUS_ROG_STRIX_850G.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/toiteplokid-psu/asus-rog-strix-power-supply-unit-850-w-20-pin-atx-atx-black-1074449"
+    }
+]

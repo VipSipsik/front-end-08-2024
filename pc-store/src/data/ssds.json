@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name" : "SSD 1",
+        "product_code": "GV-R78XTGAMINGOC-16GD",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "image_url": "",
+        "url":""
+    },
+
+    {
+        "id": 2,
+        "name" : "SSD 2",
+        "product_code": "GV-R78XTGAMINGOC-16GD",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "image_url": "",
+        "url":""
+    },
+    {
+        "id": 3,
+        "name" : "SSD 3",
+        "product_code": "GV-R78XTGAMINGOC-16GD",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "image_url": "",
+        "url":""
+    },
+    {
+        "id": 4,
+        "name" : "SSD 4",
+        "product_code": "GV-R78XTGAMINGOC-16GD",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "image_url": "",
+        "url":""
+    }
+]

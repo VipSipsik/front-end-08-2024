@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name" : "ASUS TUF GAMING X670E-PLUS WIFI AM5 ATX DDR5",
+        "product_code": "GV-R78XTGAMINGOC-16GD",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "image_url": "ASUS_TUF_GAMING_X670E-PLUS_WIFI_AM5_ATX_DDR5.webp",
+        "url":"https://arvutitark.ee/arvutikomponendid/emaplaadid/asus-amd-x670-sam5-1149076"
+    },
+
+    {
+        "id": 2,
+        "name" : "MSI MPG X670E CARBON WIFI ATX AM5",
+        "product_code": "GV-R78XTGAMINGOC-16GD",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "image_url": "MSI_MPG_X670E_CARBON_WIFI_ATX_AM5.webp",
+        "url":"https://arvutitark.ee/arvutikomponendid/emaplaadid/msi-mpg-x670e-carbon-wifi-motherboard-amd-x670-socket-am5-at-1148724" 
+    },
+    {
+        "id": 3,
+        "name" : "ASUS TUF GAMING Z790-BTF WIFI ATX, LGA 1700, PCIe 5.0, DDR5",
+        "product_code": "GV-R78XTGAMINGOC-16GD",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "image_url": "ASUS_TUF_GAMING_Z790-BTF_WIFI_DDR5.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/emaplaadid/mb-asus-intel-1700-z790-btf-wifi-1349824"
+    },
+    {
+        "id": 4,
+        "name" : "GIGABYTE X670E AORUS MASTER AM5",
+        "product_code": "GV-R78XTGAMINGOC-16GD",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "image_url": "GIGABYTE_X670E_AORUS_MASTER_AM5.webp",
+        "url":"https://arvutitark.ee/arvutikomponendid/emaplaadid/plyta-glowna-gigabyte-x670e-aorus-master-1148723"
+    }
+]

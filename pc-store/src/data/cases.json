@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "GEMBIRD Fornax 2000 RGB",
+        "product_code": "CCC-FC-2000",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "depth": 400,
+        "cpu_cooler_support": 151,
+        "gpu_support": 335,
+        "io": [
+            "1x microphone",
+            "1x 3.5mm aux",
+            "2x USB 3.0"
+        ],
+        "storage_slots": {
+            "2_5": 2,
+            "3_5": 1
+        },
+        "image_url": "gembird_fornax_2000_rgb.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/korpused/midi-tower-fornax-2000-rgb-1031834"
+    },
+    {
+        "id": 2,
+        "name": "Aerocool STREAK RGB",
+        "product_code": "AEROPGSSTREAK-A-BKRG",
+        "weight": "2700",
+        "color": "black",
+        "height": 383,
+        "width": 190,
+        "depth": 413,
+        "cpu_cooler_support": 151,
+        "gpu_support": 335,
+        "io": [
+            "1x microphone",
+            "1x 3.5mm aux",
+            "1x USB 3.0",
+            "2x USB 2.0"
+        ],
+        "storage_slots": {
+            "2_5": 4,
+            "3_5": 3
+        },
+        "image_url": "aerocool_streak_rgb.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/korpused/streak-rgb-black-usb-30-mid-tower-1031854"
+    },
+
+    {
+        "id": 3,
+        "name": "Cooler Master Masterbox TD500 V2 MESH ARGB",
+        "product_code": "TD500V2-KGNN-S00",
+        "weight": "8950",
+        "color": "black",
+        "height": 500,
+        "width": 499,
+        "depth": 210,
+        "cpu_cooler_support": 151,
+        "gpu_support": 335,
+        "io": [
+            "1x microphone",
+            "1x 3.5mm aux",
+            "2x USB 3.0",
+            "1x USB 3.1 C"
+        ],
+        "storage_slots": {
+            "2_5": 3,
+            "3_5": 2
+        },
+        "image_url": "cooler_master_masterbox_TD500.webp",
+        "url": "//https://arvutitark.ee/arvutikomponendid/korpused/midi-coolermaster-masterbox-td500-v2-argb-black-1279278"
+    },
+
+    {
+        "id": 4,
+        "name": "Corsair iCUE 4000X Tempered Glass Mid-Tower ATX RGB",
+        "product_code": "CC-9011204-WW",
+        "weight": "7800",
+        "color": "black",
+        "height": 230,
+        "width": 466,
+        "depth": 453,
+        "cpu_cooler_support": 151,
+        "gpu_support": 335,
+        "io": [
+            "1x microphone/headphone (combo)",
+            "1x USB 3.0",
+            "1x USB 3.1 C"
+        ],
+        "storage_slots": {
+            "2_5": 2,
+            "3_5": 2
+        },
+        "image_url": "Corsair iCUE 4000X.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/korpused/corsair-tempered-glass-mid-tower-atx-case-icue-4000x-rgb-sid-1024737"
+    }
+]

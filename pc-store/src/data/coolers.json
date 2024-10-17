@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name" : "Jonsbo CR-1400 92mm ARGB, 130W TDP",
+        "product_code": "CR-1400 ARGB Black",
+        "price":"340",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "depth": 120,
+        "speedupto": 2300,
+        "socket": "115X; 1200; 1700; AM4; AM5",
+        "image_url": "Jonsbo_CR-1400_ARGB.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/jahutid/protsessori-jahutid/jonsbo-cr-1400-cpu-kuhler-argb-92mm-schwarz-1125225"
+    },
+
+    {
+        "id": 2,
+        "name" : "Cougar I Forza 50",
+        "product_code": "CGR-FZA50",
+        "price":"340",
+        "weight": "596",
+        "color": "black",
+        "height": 25,
+        "width": 120,
+        "depth": 120,
+        "speedupto": 2300,
+        "socket": "115X; 1200; 1700; AM4; AM5",
+        "image_url": "cougar_forza_50.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/jahutid/protsessori-jahutid/cougar-i-forza-50-i-3mfza500001-i-air-cooling-i-50x135x155m-1393343"
+    },
+    {
+        "id": 3,
+        "name" : "be quiet! Pure Rock 2 FX 120mm Intel & AMD",
+        "product_code": "BK033",
+        "price":"340",
+        "weight": "1000",
+        "color": "black",
+        "height": 155,
+        "width": 190,
+        "depth": 120,
+        "speedupto": 2000,
+        "socket": "LGA2011-3; LGA1700; LGA2066; LGA1200; LGA1151; LGA1155; AM4; AM5; LGA1150",
+        "image_url": "bequiet_pure_rock2.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/jahutid/protsessori-jahutid/be-quiet-pure-rock-2-fx-cpu-kuhler-120mm-1147601"
+    },
+    {
+        "id": 4,
+        "name" : "DeepCool AK500",
+        "product_code": "R-AK500-BKNNMT-G",
+        "price":"340",
+        "weight": "1000",
+        "color": "black",
+        "height": 158,
+        "width": 190,
+        "depth": 120,
+        "speedupto": 1850,
+        "socket": "Intel LGA2066/2011-v3/2011/1700/1200/1151/1150/1155; AMD AM5/AM4",
+        "image_url": "deepcool_AK500.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/jahutid/protsessori-jahutid/deepcool-ak500-intel-amd-cpu-air-cooler-1149118"
+    }
+
+    
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "GIGABYTE AMD Radeon RX 7800XT 16GB GV-R78XTGAMINGOC-16GD",
+        "product_code": "GV-R78XTGAMINGOC-16GD",
+        "weight": "1000",
+        "color": "black",
+        "height": 440,
+        "width": 190,
+        "lenght": 400,
+        "vram": "GDDR6",
+        "gpu_support": 335,
+        "video": [
+            "1x HDMI",
+            "1x Displayport"      
+        ],
+        "image_url": "GIGABYTE AMD Radeon RX 7800XT 16GB.webp",
+        "url":"https://arvutitark.ee/arvutikomponendid/graafikakaardid-vga/gigabyte-amd-radeon-rx-7800-xt-16-gb-1312834"
+    },
+
+    {
+        "id": 2,
+        "name": "ASRock AMD Radeon RX 6750 XT Phantom OC 12GB GDDR6",
+        "product_code": "RX6750XTPGD12GO",
+        "price":"340",
+        "weight": "1000",
+        "color": "colored",
+        "height": 440,
+        "width": 190,
+        "lenght": 400,
+        "vram": "GDDR6",
+        "gpu_support": 335,
+        "video": [
+            "1x HDMI",
+            "1x Displayport"
+        ],
+        "image_url": "ASRock AMD Radeon RX 6750 XT 12GB.webp",
+        "url":"https://arvutitark.ee/arvutikomponendid/graafikakaardid-vga/asrock-rx6750xt-pgd-12go-amd-12-gb-radeon-rx-6750-xt-gddr-1252971"
+    },
+
+    {
+        "id": 3,
+        "name": "SAPPHIRE NITRO+ RX7900XT GAMING OC 20GB",
+        "product_code": "11323-01-40G",
+        "price":"340",
+        "weight": "1000",
+        "color": "black",
+        "height": 71.6,
+        "width": 135.75,
+        "lenght": 320,
+        "vram": "GDDR6",
+        "gpu_support": 335,
+        "video": [
+            "2x HDMI",
+            "2x Displayport",
+            "8+8+8 power connectors"
+        ],
+        "image_url": "Sapphire Nitro+ RX7900XT 20GB.webp",
+        "url":"https://arvutitark.ee/arvutikomponendid/graafikakaardid-vga/vga-sapphire-rx7900xt-20gb-nitro-gaming-oc-1213676"
+    },
+    {
+        "id": 4,
+        "name": "SAPPHIRE PURE AMD RADEON RX 7700 XT 12GB",
+        "product_code": "11335-03-20G",
+        "price":"340",
+        "weight": "1000",
+        "color": "colored",
+        "height": 52.57,
+        "width": 128.75,
+        "lenght": 320,
+        "vram": "GDDR6",
+        "gpu_support": 335,
+        "video": [
+            "2x HDMI",
+            "2x Displayport"
+        ],
+        "image_url": "sapphire_pure_AMD_RX_7700XT_12GB.webp",
+        "url":"https://arvutitark.ee/arvutikomponendid/graafikakaardid-vga/sapphire-vga-12gb-rx7700xt-pure-gaming-2xhdmi2xdp-pure-amd-1312911"
+    }
+]
+
+    

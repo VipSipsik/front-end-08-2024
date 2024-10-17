@@ -16,7 +16,7 @@ function Homepage() {
 
       <Link to={'/pre-configured-pc'}>
         <button>preconfig pcs</button>
-        <img style={{ width: "300px", height: "50px" }} src="" alt="" />
+        <img style={{ width: "300px", height: "50px" }} src="pc_pic_1.webp" alt="" />
       </Link> <br />
 
     </div>

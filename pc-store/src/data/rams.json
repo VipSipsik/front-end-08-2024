@@ -1,46 +1,46 @@
 [
     {
         "id": 1,
-        "name": "RAM 1",
+        "name": "Kingston Fury Beast 16GB (2x8GB) 3600MHz DDR4 CL17 DIMM",
         "product_code": "GV-R78XTGAMINGOC-16GD",
         "weight": "1000",
         "color": "black",
         "height": 440,
         "width": 190,
-        "image_url": "",
-        "url": ""
+        "image_url": "kingston_fury_beast_16GB_(2x8GB).webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/malud-ram/memory-ddr4-fury-beast-16gb28gb3600-cl17-1029491"
     },
     {
         "id": 2,
-        "name": "RAM 2",
+        "name": "G.Skill Aegis 32GB (2x16GB) DDR4 3200MHz CL16",
         "product_code": "GV-R78XTGAMINGOC-16GD",
         "weight": "1000",
         "color": "black",
         "height": 440,
         "width": 190,
-        "image_url": "",
-        "url": ""
+        "image_url": "gskill_aegis_32GB(2x16GB)_DDR4.webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/malud-ram/gskill-aegis-32-gb-ddr4-3200-mhz-pcserver-registered-1006459"
     },
     {
         "id": 3,
-        "name": "RAM 3",
+        "name": "G.Skill Trident Z5 Neo RGB 32GB (2x 16GB) DDR5-6000 CL32 AMD EXPO Dual-Kit",
         "product_code": "GV-R78XTGAMINGOC-16GD",
         "weight": "1000",
         "color": "black",
         "height": 440,
         "width": 190,
-        "image_url": "",
-        "url": ""
+        "image_url": "gskill_tridentZ5_Neo_RGB_32GB(2x 16GB).webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/malud-ram/gskill-trident-z5-neo-rgb-ddr5-6000-cl32-amd-expo-32-g-1148550"
     },
     {
         "id": 4,
-        "name": "RAM 4",
+        "name": "CORSAIR VENGEANCE RGB PRO 16GB (2 x 8GB) DDR4 DRAM 3600MHz C18",
         "product_code": "GV-R78XTGAMINGOC-16GD",
         "weight": "1000",
-        "color": "black",
+        "color": "white",
         "height": 440,
         "width": 190,
-        "image_url": "",
-        "url": ""
+        "image_url": "corsair_vengeance_RGB_PRO_16GB(2 x 8GB).webp",
+        "url": "https://arvutitark.ee/arvutikomponendid/malud-ram/corsair-ddr4-3600mhz-16gb-2-x-288-dimm-1079616"
     }
 ]

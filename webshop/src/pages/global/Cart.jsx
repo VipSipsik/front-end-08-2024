@@ -12,13 +12,13 @@ function Cart() {
   const { t } = useTranslation();
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
 
-  
 
-    // useEffect(() => {
-    //    fetch('https://fakestoreapi.com/products')
-    //    .then(response => response.json())
-    //    .then(json => setProducts(json)) 
-    // }, []);
+
+  // useEffect(() => {
+  //    fetch('https://fakestoreapi.com/products')
+  //    .then(response => response.json())
+  //    .then(json => setProducts(json)) 
+  // }, []);
 
   const addNewProduct = (newProduct) => {
     cart.push(newProduct);
@@ -30,7 +30,7 @@ function Cart() {
   const addPackageDelivery = () => {
     // muudaOstukorv(["Coca", "Fanta", "Sprite", "Red bull"])
     cart.push({ "title": "package-destination", "price": 3, "image": "image.jpg", "active": true });// VÕTMED SAMAKS mis toodetel
-   // ({ "name": "package-destination", "price": 3, "image": "image.jpg", "active": true })
+    // ({ "name": "package-destination", "price": 3, "image": "image.jpg", "active": true })
     localStorage.setItem("cart", JSON.stringify(cart)); // salvestuseks
     setCart(cart.slice());
   }
@@ -52,7 +52,7 @@ function Cart() {
   const CalculatePrices = () => {
     let total = 0;
     cart.forEach(product => total = total + product.price);
-    return total;
+    return total.toFixed(2);
   }
 
   return (
@@ -65,64 +65,37 @@ function Cart() {
       />
 
       <br />
-      <table className='cart'>
-        <thead>
-          <tr>
-            <th>{t("Index")}</th>
-            <th>{t("Product title")}</th>
-            <th>{t("Product price")}</th>
-            <th>{t("Product description")}</th>
-            <th>{t("Product category")}</th>
-            <th>{t("Product image")}</th>
-            <th>{t("Product rating rate")}</th>
-            <th>{t("Product rating count")}</th>
-            <th>{t("Edit product")}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map((product, index) =>
-            <tr key={index}>
-              <td>{index}. </td>
-              <td>{product.title}</td>
-              <td>{product.price}</td>
-              <td>{product.description}</td>
-              <td>{product.category}</td>
-              <td> <img className='product-image' src={product.image} alt="" /></td>
-              <td>{product.rating.rate}</td>
-              <td>{product.rating.count}</td>
-              <td>
-                <button className='edit-button' onClick={() => addNewProduct(product)}>{t("Duplicate")}</button>
-                <button className='delete-button' onClick={() => deleteProduct(index)}>x</button>
-              </td>
-            </tr>)}
-        </tbody>
-      </table>
-      <div>
+
+      {cart.map((product, index) =>
+      <div className="cart-product" key={index}>
+        <img className='product-image' src={product.image} alt="" />
+        <div className='product-title'>{product.title}</div>
+        <div className='product-price'>{product.price}</div>
+        <button className='edit-button' onClick={() => addNewProduct(product)}>{t("Duplicate")}</button>
+        <button className='delete-button' onClick={() => deleteProduct(index)}>x</button>
+        </div> )}
+
+        {cart.length > 0 && <div>{t("Total")}: {cart.length} {t("pcs")}</div>}
+
+
+        {cart.length === 0 &&
+          <div>
+            <div>{t("No items in cart")}</div>
+            <Link to="/">{t("Go to Homepage")}</Link>
+          </div>
+        }
+
+        {cart.length > 0 && <button onClick={addPackageDelivery}>Add package delivery to the end</button>}
+
+        {cart.length > 0 && <DeliveryDestination />} <br />
+
+        <div> {t("Total")}: {CalculatePrices()} €</div> <br />
+        {cart.length > 0 && <button className='delete-button' onClick={empty}>{t("Delete all items from cart")}</button>}
+
+
 
       </div>
-
-
-      {cart.length > 0 && <div>{t("Total")}: {cart.length} {t("pcs")}</div>}
-
-
-      {cart.length === 0 &&
-        <div>
-          <div>{t("No items in cart")}</div>
-          <Link to="/">{t("Go to Homepage")}</Link>
-        </div>
-      }
-
-      {cart.length > 0 && <button onClick={addPackageDelivery}>Add package delivery to the end</button>}
-
-      {cart.length > 0 && <DeliveryDestination />} <br />
-      
-      <div> {t("Total")}: {CalculatePrices()} €</div> <br />
-      {cart.length > 0 && <button className='delete-button' onClick={empty}>{t("Delete all items from cart")}</button>}
-
-
-
-    </div>
   )
 }
 
-export default Cart
+      export default Cart

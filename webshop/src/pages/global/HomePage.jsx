@@ -3,7 +3,6 @@ import { useState } from 'react'
 // import productsFromFile from "../../data/products.json"
 // import cartFromFile from "../../data/cart.json";
 import { ToastContainer, toast } from 'react-toastify';
-import Table from 'react-bootstrap/Table';
 // import Button from 'react-bootstrap/Button';
 import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
@@ -19,11 +18,11 @@ function HomePage() {
 
     const [products, setProducts] = useState([]);
     const url = "https://mirjam-webshop-example-default-rtdb.europe-west1.firebasedatabase.app/products.json"
-    
+
     useEffect(() => {
         fetch(url)
-        .then(res => res.json())
-        .then(json => setProducts(json || []));
+            .then(res => res.json())
+            .then(json => setProducts(json || []));
     }, []);
 
 
@@ -72,7 +71,7 @@ function HomePage() {
 
 
     if (products.length === 0) {
-       return < Spinner/>
+        return < Spinner />
     }
 
     return (
@@ -90,37 +89,19 @@ function HomePage() {
                 theme="dark"
             />
 
-            <Table bordered hover size="sm">
-                <thead>
-                    <tr>
-                        <th>{t("Product image")}</th>
-                        <th>{t("Product title")}</th>
-                        <th>{t("Product price")}</th>
-                        <th>{t("Product description")}</th>
-                        <th>{t("Product category")}</th>
-                        <th>{t("Product rating rate")}</th>
-                        <th>{t("Product rating count")}</th>
-                        <th>{t("Add")}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {products.map((product) =>
-                        <tr key={product.id}>
-                            <td> <img style={{ width: "100px" }} src={product.image} alt="" /></td>
-                            <td>{product.title} </td>
-                            <td>{product.price} </td>
-                            <td>{product.description}</td>
-                            <td>{product.category}</td>
-                            <td>{product.rating.rate}</td>
-                            <td>{product.rating.count}</td>
-                            <td>
-                                <Button variant="contained" onClick={() => AddtoCart(product)}>{t("Add to cart")}</Button><br /><br />
-                            </td>
-                        </tr>)}
-                </tbody>
-            </Table>
+            <div className='products'>
+                {products.map((product) =>
+                    <div className='product' key={product.id}>
+                        <img style={{ width: "100px" }} src={product.image} alt="" />
+                        <div className='title'>{product.title} </div>
+                        <div> {product.price} € </div>
+                        <Button variant="contained" onClick={() => AddtoCart(product)}>{t("Add to cart")}</Button><br /><br />
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
+
 
 export default HomePage

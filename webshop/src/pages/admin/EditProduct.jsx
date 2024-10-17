@@ -10,11 +10,19 @@ function EditProduct() {
 
   const [products, setProducts] = useState([]);
   const url = "https://mirjam-webshop-example-default-rtdb.europe-west1.firebasedatabase.app/products.json"
+  const [categories, setCategories] = useState([]);
+  const categoryUrl = "https://mirjam-webshop-example-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
 
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
       .then(json => setProducts(json || []));
+  }, []);
+
+  useEffect(() => {
+    fetch(categoryUrl)
+      .then(res => res.json())
+      .then(json => setCategories(json || []));
   }, []);
 
   const { index } = useParams();
@@ -32,15 +40,15 @@ function EditProduct() {
 
   const edit = () => {
     products[index] = {
-      "id": idRef.current.value,
+      "id": Number(idRef.current.value),
       "title": titleRef.current.value,
-      "price": priceRef.current.value,
+      "price": Number(priceRef.current.value),
       "description": descriptionRef.current.value,
       "category": categoryRef.current.value,
       "image": imageRef.current.value,
       "rating": {
-        "rate": ratingRateRef.current.value,
-        "count": ratingCountRef.current.value
+        "rate": Number(ratingRateRef.current.value),
+        "count": Number(ratingCountRef.current.value)
       }
     }
     fetch(url, { method: "PUT", body: JSON.stringify(products) });
@@ -65,7 +73,10 @@ function EditProduct() {
       <input type="text" ref={descriptionRef} defaultValue={found.description} /> <br />
 
       <label>{t("Product category")}:</label> <br />
-      <input type="text" ref={categoryRef} defaultValue={found.category} /> <br />
+      <select ref={categoryRef} defaultValue={found.category}>
+        {categories.map(category => <option key={category.name} >{category.name}</option>)}
+      </select><br />
+      {/* <input type="text" ref={categoryRef} defaultValue={found.category} /> <br /> */}
 
       <label>{t("Product image")}:</label> <br />
       <input type="text" ref={imageRef} defaultValue={found.image} /> <br />
@@ -76,7 +87,7 @@ function EditProduct() {
       <label>{t("Product rating count")}:</label> <br />
       <input type="text" ref={ratingCountRef} defaultValue={found.rating.count} /> <br />
 
-      <Link to="admin/maintain-products">
+      <Link to="/admin/maintain-products">
         <button onClick={edit} >{t("Edit")}</button> <br />
       </Link>
 

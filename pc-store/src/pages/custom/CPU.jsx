@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FlowBar from '../../components/FlowBar'
 import cpus from '../../data/cpus.json'
 import { useNavigate } from 'react-router-dom';
 
 function CPU() {
-  const [cpuClass, setCpuClass] = useState("");
   let navigate = useNavigate();
 
   const getCpus = () => {
@@ -13,19 +12,13 @@ function CPU() {
 
   const selectCpu = (id) => {
     localStorage.setItem("cpu-id", id);
-    setCpuClass('completed-step');
     navigate('/cooler', { replace: true });
   }
 
   return (
     <div>
       CPU
-      <FlowBar
-        caseClass='completed-step'
-        gpuClass='completed-step'
-        psuClass='completed-step'
-        cpuClass={cpuClass}
-      />
+      <FlowBar/>
       <div className='psus-container row'>
         {getCpus().map((cpu, index) =>
           <div className="col-4" key={index} onClick={() => selectCpu(cpu.id)} >

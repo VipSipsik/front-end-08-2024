@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FlowBar from '../../components/FlowBar'
 import ssds from '../../data/ssds.json'
 import { useNavigate } from 'react-router-dom';
 
 function SSD() {
-  const [ssdClass, setSsdClass] = useState("");
+
   let navigate = useNavigate();
-  navigate('/cart', { replace: true });
+  
 
   const getSsds = () => {
     return ssds;
@@ -14,21 +14,13 @@ function SSD() {
 
   const selectSsd = (id) => {
     localStorage.setItem("ssd-id", id);
-    setSsdClass('completed-step');
+    navigate('/cart', { replace: true });
   }
+
   return (
     <div>
       SSD
-      <FlowBar
-        caseClass='completed-step'
-        gpuClass='completed-step'
-        psuClass='completed-step'
-        cpuClass='completed-step'
-        coolerClass='completed-step'
-        mbClass='completed-step'
-        ramClass='completed-step'
-        ssdClass={ssdClass}
-      />
+      <FlowBar />
       <div className='ssds-container row'>
         {getSsds().map((ssd, index) =>
           <div className="col-4" key={index} onClick={() => selectSsd(ssd.id)} >

@@ -1,24 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import {getSelectedCase,getSelectedGpu,getSelectedPsu,getSelectedCpu,getSelectedCooler,getSelectedMotherboard, getSelectedRam,getSelectedSsd} from '../FlowController'
 
-
-function NavigationBar(
-  params = "",
-) {
+function NavigationBar() {
 
 
   const customBuildRoutes = [
-    { "route": "/computer-case", "text": "Select computer case", "class": params.caseClass ?? null },
-    { "route": "/gpu", "text": "GPU", "class": params.gpuClass ?? null },
-    { "route": "/psu", "text": "PSU", "class": params.psuClass ?? null },
-    { "route": "/cpu", "text": "CPU", "class": params.cpuClass ?? null },
-    { "route": "/cooler", "text": "Cooler", "class": params.coolerClass ?? null },
-    { "route": "/motherboard", "text": "Motherboard", "class": params.mbClass ?? null },
-    { "route": "/ram", "text": "RAM", "class": params.ramClass ?? null },
-    { "route": "/ssd", "text": "SSD", "class": params.ssdClass ?? null },
+    { "route": "/computer-case", "text": "Select computer case", "class": getSelectedCase() ?'completed-step' : '' },
+    { "route": "/gpu", "text": "GPU", "class": getSelectedGpu() ? 'completed-step' : ''  },
+    { "route": "/psu", "text": "PSU", "class": getSelectedPsu() ? 'completed-step' : '' },
+    { "route": "/cpu", "text": "CPU", "class": getSelectedCpu() ? 'completed-step' : '' },
+    { "route": "/cooler", "text": "Cooler", "class": getSelectedCooler() ? 'completed-step' : '' },
+    { "route": "/motherboard", "text": "Motherboard", "class": getSelectedMotherboard() ? 'completed-step' : '' },
+    { "route": "/ram", "text": "RAM", "class": getSelectedRam() ? 'completed-step' : '' },
+    { "route": "/ssd", "text": "SSD", "class": getSelectedSsd() ? 'completed-step' : '' },
   ];
 
-  console.log(customBuildRoutes);
+  getSelectedCase();
   return (
 
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FlowBar from '../../components/FlowBar'
 import cases from "../../data/cases.json"
 import { useNavigate } from 'react-router-dom';
 
 function ComputerCase() {
-  const [caseClass, setCaseClass] = useState("");
   let navigate = useNavigate();
 
   const getCases = () => {
@@ -13,17 +12,13 @@ function ComputerCase() {
 
   const selectCase = (id) => {
     localStorage.setItem("case-id", id);
-    setCaseClass('completed-step');
     navigate('/gpu', { replace: true });
     // ToDo: Save case_id in localStorage  
   }
-  console.log(caseClass)
   return (
     <div className=''>
       ComputerCase
-      <FlowBar
-        caseClass={caseClass}
-      />
+      <FlowBar/>
 
       <div className='cases-container row'>
         {getCases().map((computerCase, index) =>

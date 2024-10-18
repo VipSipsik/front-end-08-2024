@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FlowBar from '../../components/FlowBar'
 import motherboards from '../../data/motherboards.json'
 import { useNavigate } from 'react-router-dom';
 
 function Motherboard() {
-  const [motherboardClass, setMotherboardClass] = useState("");
   let navigate = useNavigate();
 
   const getMotherboards = () => {
@@ -13,21 +12,13 @@ function Motherboard() {
 
   const selectMotherboard = (id) => {
     localStorage.setItem("motherboard-id", id);
-    setMotherboardClass('completed-step');
     navigate('/ram', { replace: true });
   }
 
   return (
     <div>
       Motherboard
-      <FlowBar
-        caseClass='completed-step'
-        gpuClass='completed-step'
-        psuClass='completed-step'
-        cpuClass='completed-step'
-        coolerClass='completed-step'
-        mbClass={motherboardClass}
-      />
+      <FlowBar />
       <div className='motherboards-container row'>
         {getMotherboards().map((motherboard, index) =>
           <div className="col-4" key={index} onClick={() => selectMotherboard(motherboard.id)} >

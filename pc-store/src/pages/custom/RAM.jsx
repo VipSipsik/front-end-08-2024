@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FlowBar from '../../components/FlowBar'
 import rams from '../../data/rams.json'
 import { useNavigate } from 'react-router-dom';
 
 function RAM() {
-  const [ramClass, setRamClass] = useState("");
   let navigate = useNavigate();
 
   const getRams = () => {
@@ -13,21 +12,12 @@ function RAM() {
 
   const selectRam = (id) => {
     localStorage.setItem("ram-id", id);
-    setRamClass('completed-step');
     navigate('/ssd', { replace: true });
   }
   return (
     <div>
       RAM
-      <FlowBar
-        caseClass='completed-step'
-        gpuClass='completed-step'
-        psuClass='completed-step'
-        cpuClass='completed-step'
-        coolerClass='completed-step'
-        mbClass='completed-step'
-        ramClass={ramClass}
-      />
+      <FlowBar />
 
       <div className='rams-container row'>
         {getRams().map((ram, index) =>

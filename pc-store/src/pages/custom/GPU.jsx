@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FlowBar from '../../components/FlowBar'
 import gpus from '../../data/gpus.json'
 import { useNavigate } from 'react-router-dom';
 
 function GPU() {
-  const [gpuClass, setGpuClass] = useState("");
   let navigate = useNavigate();
 
   const getGpus = () => {
@@ -13,7 +12,6 @@ function GPU() {
 
   const selectGpu = (id) => {
     localStorage.setItem("gpu-id", id);
-    setGpuClass('completed-step');
     navigate('/psu', { replace: true });
   }
 
@@ -21,10 +19,7 @@ function GPU() {
   return (
     <div>
       GPU
-      <FlowBar
-        caseClass='completed-step'
-        gpuClass={gpuClass}
-      />
+      <FlowBar/>
 
       <div className='gpus-container row'>
         {getGpus().map((gpu, index) =>

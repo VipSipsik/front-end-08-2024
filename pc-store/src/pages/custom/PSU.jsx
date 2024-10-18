@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FlowBar from '../../components/FlowBar'
 import psus from '../../data/psus.json'
 import { useNavigate } from 'react-router-dom';
 
 function PSU() {
-  const [psuClass, setPsuClass] = useState("");
   let navigate = useNavigate();
 
   const getPsus = () => {
@@ -13,18 +12,13 @@ function PSU() {
 
   const selectPsu = (id) => {
     localStorage.setItem("psu-id", id);
-    setPsuClass('completed-step');
     navigate('/cpu', { replace: true });
   }
 
   return (
     <div>
       PSU
-      <FlowBar
-        caseClass='completed-step'
-        gpuClass='completed-step'
-        psuClass={psuClass}
-      />
+      <FlowBar/>
 
       <div className='psus-container row'>
         {getPsus().map((psu, index) =>

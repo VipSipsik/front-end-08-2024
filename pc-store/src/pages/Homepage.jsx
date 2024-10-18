@@ -11,12 +11,12 @@ function Homepage() {
       <br />
       <Link to={'/custom-pc'}>
         <button>custom your pc</button>
-        <img style={{ width: "300px", height: "50px" }} src="" alt="" />
+        <img style={{ width: "auto", height: "200px", padding:"10px"}} src="/images/pc_pic_1.webp" alt="" />
       </Link> <br />
 
       <Link to={'/pre-configured-pc'}>
         <button>preconfig pcs</button>
-        <img style={{ width: "300px", height: "50px" }} src="/images/pc_pic_1.webp" alt="" />
+        <img style={{ width: "auto", height: "200px", padding:"10px" }} src="/images/pc_pic_1.webp" alt="" />
       </Link> <br />
 
     </div>

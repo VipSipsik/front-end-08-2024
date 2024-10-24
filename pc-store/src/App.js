@@ -1,6 +1,8 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+
+
 import NavigationBar from './components/NavigationBar.jsx';
 import HomePage from './pages/Homepage.jsx';
 import ContactUs from './pages/ContactUs.jsx';
@@ -20,6 +22,7 @@ import SSD from './pages/custom/SSD.jsx';
 
 function App() {
   return (
+    //<div className="App min-vh-100 d-flex justify-content-center align-items-center">
     <div className="App">
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

@@ -7,33 +7,88 @@ import motherboards from "./data/motherboards.json"
 import rams from "./data/rams.json"
 import ssds from "./data/ssds.json"
 
-export function getSelectedCase(){
-    return cases.find((item) => item.id === Number(localStorage.getItem('case-id')))
-}
-export function getSelectedGpu(){
-    return gpus.find((item) => { return item.id === Number(localStorage.getItem('gpu-id')) })
+
+
+export function getById(id, dataSet) {
+    return dataSet.find((item) => item.id === Number(id))
 }
 
-export function getSelectedPsu(){
-    return psus.find((item) => { return item.id === Number(localStorage.getItem('psu-id')) })
+export const getCases = () => {
+    return cases;
+}
+export function getSelectedCase() {
+    return getById(localStorage.getItem('case-id'), cases);
+}
+export function setSelectedCaseId(id) {
+    return localStorage.setItem('case-id', id);
 }
 
-export function getSelectedCpu(){
-    return cpus.find((item) => { return item.id === Number(localStorage.getItem('cpu-id')) })
+export const getGpus = () => {
+    return gpus;
+}
+export function getSelectedGpu() {
+    return getById(localStorage.getItem('gpu-id'), gpus);
+}
+export function setSelectedGpuId(id) {
+    return localStorage.setItem('gpu-id', id);
 }
 
-export function getSelectedCooler(){
-    return coolers.find((item) => { return item.id === Number(localStorage.getItem('cooler-id')) })
+export const getPsus = () => {
+    return psus;
+}
+export function getSelectedPsu() {
+    return getById(localStorage.getItem('psu-id'), psus); 
+}
+export function setSelectedPsuId(id) {
+    return localStorage.setItem('psu-id', id); 
 }
 
-export function getSelectedMotherboard(){
-    return motherboards.find((item) => { return item.id === Number(localStorage.getItem('motherboard-id')) })
+export const getCpus = () => {
+    return cpus;
+}
+export function getSelectedCpu() {
+    return getById(localStorage.getItem('cpu-id'), cpus); 
+}
+export function setSelectedCpuId(id) {
+    return localStorage.setItem('cpu-id', id); 
 }
 
-export function getSelectedRam(){
-    return rams.find((item) => { return item.id === Number(localStorage.getItem('ram-id')) })
+export const getCoolers = () => {
+    return coolers;
+}
+export function getSelectedCooler() {
+    return getById(localStorage.getItem('cooler-id'), coolers); 
+}
+export function setSelectedCoolerId(id) {
+    return localStorage.setItem("cooler-id", id);
 }
 
-export function getSelectedSsd(){
-    return ssds.find((item) => { return item.id === Number(localStorage.getItem('ssd-id')) })
+export const getMotherboards = () => {
+    return motherboards;
+}
+export function getSelectedMotherboard() {
+    return getById(localStorage.getItem('motherboard-id'), motherboards); 
+}
+export function setSelectedMotherboardId(id) {
+    return localStorage.setItem('motherboard-id', id); 
+}
+
+export const getRams = () => {
+    return rams;
+}
+export function getSelectedRam() {
+    return getById(localStorage.getItem('ram-id'), rams); 
+}
+export function setSelectedRamId(id) {
+    return localStorage.setItem('ram-id', id); 
+}
+
+export const getSsds = () => {
+    return ssds;
+}
+export function getSelectedSsd() {
+    return getById(localStorage.getItem('ssd-id'), ssds); 
+}
+export function setSelectedSsdId(id) {
+    return localStorage.setItem('ssd-id', id); 
 }

@@ -58,10 +58,9 @@ function PreConfiguredPC() {
   return (
 
     <div>
-      <button type="button" className="btn btn-info btn-block btn-md" onClick={sortByLowestPrice}>Low to high</button>
-      <button type="button" className="btn btn-info btn-block btn-md" onClick={sortAZ}>A-Z</button>
-      
-      <h3 className='preconfig-title'>Preconfigured PCs</h3>
+      <h3 className='preconfig-title fw-bold'>Preconfigured PCs</h3>
+      <button type="button" className="btn btn-secondary btn-block btn-sm  " onClick={sortByLowestPrice}>Low to high</button>
+      <button type="button" className="btn btn-secondary btn-block btn-sm" onClick={sortAZ}>A-Z</button><br /><br />
       <div className='preconfigured-card row'>
         {preconfiguredPcs.map((preconfiguredPc, index) =>
           <div className='col-4' key={index} >

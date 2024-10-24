@@ -6,7 +6,7 @@ function CustomPC() {
     return (
         <div>
              <div className='container p-5 bg-light'>
-            <h3>Custom PC</h3>
+            <h3 className='preconfig-title fw-bold'>Custom PC</h3>
             <Link to={'/computer-case'}>
             <button className='btn btn-info'>Start configuring</button><br />
                 <img src="images/carousel_1.webp " alt="" />

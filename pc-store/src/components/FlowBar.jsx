@@ -21,8 +21,6 @@ function NavigationBar() {
 
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <ul className="navbar-nav">
-
-
         {customBuildRoutes.map((step, index) =>
           <li className='nav-item' key={index}>
             <Link className='nav-link' to={step.route}>
@@ -36,7 +34,6 @@ function NavigationBar() {
             </Link>
           </li>
         )}
-
       </ul>
     </nav>
   )

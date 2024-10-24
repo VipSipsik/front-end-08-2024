@@ -17,7 +17,7 @@ const firebaseConfig = {
   projectId: "mirjam-sysshop-webshop-example",
   storageBucket: "mirjam-sysshop-webshop-example.appspot.com",
   messagingSenderId: "348664012394",
-  appId: "1:348664012394:web:163c1f9b85a17a5d6d3413"
+  appId: "1:348664012394:web:d8165cf5bd0f64a66d3413"
 };
 
 initializeApp(firebaseConfig);

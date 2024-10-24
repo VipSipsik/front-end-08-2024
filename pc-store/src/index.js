@@ -6,9 +6,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { initializeApp } from 'firebase/app';
 
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCCNpiu8oOj-RAvYsOGNzpXRrH31luJr3o",
+  authDomain: "mirjam-sysshop-webshop-example.firebaseapp.com",
+  projectId: "mirjam-sysshop-webshop-example",
+  storageBucket: "mirjam-sysshop-webshop-example.appspot.com",
+  messagingSenderId: "348664012394",
+  appId: "1:348664012394:web:163c1f9b85a17a5d6d3413"
+};
+
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

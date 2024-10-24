@@ -1,0 +1,90 @@
+[
+    {
+        "name":"Awesome preconfigured pc 1",
+        "case_id": 1,
+        "gpu_id": 1,
+        "psu_id": 1,
+        "cpu_id": 1,
+        "cooler_id": 1,
+        "motherboard_id": 1,
+        "ram_id": 1,
+        "ssd_id": 1
+    },
+    {
+        "name":"Awesome preconfigured pc 2",
+        "case_id": 2,
+        "gpu_id": 2,
+        "psu_id": 2,
+        "cpu_id": 2,
+        "cooler_id": 2,
+        "motherboard_id": 2,
+        "ram_id": 2,
+        "ssd_id": 2
+    },
+    {
+        "name":"Awesome preconfigured pc 3",
+        "case_id": 3,
+        "gpu_id": 3,
+        "psu_id": 3,
+        "cpu_id": 3,
+        "cooler_id": 3,
+        "motherboard_id": 3,
+        "ram_id": 3,
+        "ssd_id": 3
+    },
+    {
+        "name":"Awesome preconfigured pc 4",
+        "case_id": 4,
+        "gpu_id": 4,
+        "psu_id": 4,
+        "cpu_id": 4,
+        "cooler_id": 4,
+        "motherboard_id": 4,
+        "ram_id": 4,
+        "ssd_id": 4
+    },
+    {
+        "name":"Awesome preconfigured pc 5",
+        "case_id": 1,
+        "gpu_id": 1,
+        "psu_id": 1,
+        "cpu_id": 1,
+        "cooler_id": 2,
+        "motherboard_id": 2,
+        "ram_id": 1,
+        "ssd_id": 1
+    },
+    {
+        "name":"Awesome preconfigured pc 6",
+        "case_id": 2,
+        "gpu_id": 2,
+        "psu_id": 2,
+        "cpu_id": 2,
+        "cooler_id": 2,
+        "motherboard_id": 2,
+        "ram_id": 2,
+        "ssd_id": 2
+    },
+    {
+        "name":"Awesome preconfigured pc 7",
+        "case_id": 3,
+        "gpu_id": 3,
+        "psu_id": 3,
+        "cpu_id": 3,
+        "cooler_id": 3,
+        "motherboard_id": 2,
+        "ram_id": 2,
+        "ssd_id": 2
+    },
+    {
+        "name":"Awesome preconfigured pc 8",
+        "case_id": 4,
+        "gpu_id": 2,
+        "psu_id": 4,
+        "cpu_id": 4,
+        "cooler_id": 4,
+        "motherboard_id": 2,
+        "ram_id": 2,
+        "ssd_id": 2
+    }
+]

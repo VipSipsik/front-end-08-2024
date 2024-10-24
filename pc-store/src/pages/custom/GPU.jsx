@@ -1,31 +1,28 @@
 import React from 'react'
 import FlowBar from '../../components/FlowBar'
-import gpus from '../../data/gpus.json'
+import {getGpus, setSelectedGpuId} from '../../FlowController'
 import { useNavigate } from 'react-router-dom';
 
 function GPU() {
   let navigate = useNavigate();
 
-  const getGpus = () => {
-    return gpus;
-  }
 
-  const selectGpu = (id) => {
-    localStorage.setItem("gpu-id", id);
+  const selectGpu = (gpu) => {
+    setSelectedGpuId(gpu.id);
     navigate('/psu', { replace: true });
   }
 
 
   return (
+    
     <div>
-      GPU
       <FlowBar/>
 
       <div className='gpus-container row'>
         {getGpus().map((gpu, index) =>
-          <div className="col-4" key={index} onClick={() => selectGpu(gpu.id)}>
+          <div className="col-4" key={index} onClick={() => selectGpu(gpu)}>
             <div className="card h-100 align-items-center">
-              <img className='gpu-img card-img-top' src={`/images/${gpu.image_url}`} alt="" />
+              <img className='gpu-img card-img-top h-40 w-50' src={`/images/${gpu.image_url}`} alt="" />
 
               <div className="card-body">
                 <h5 className="card-title">{gpu.name}</h5>

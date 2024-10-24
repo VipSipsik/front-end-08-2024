@@ -32,8 +32,7 @@ function PreConfiguredPC() {
     setSelectedMotherboardId(preconfiguredPc.motherboard_id);
     setSelectedRamId(preconfiguredPc.ram_id);
     setSelectedSsdId(preconfiguredPc.ssd_id);
-    navigate('/cart', { replace: true });
-    // ToDo: Save case_id in localStorage  
+    navigate('/cart', { replace: true }); 
   }
 
   const calculatePreconfigPrice = (preconfiguredPc) => {

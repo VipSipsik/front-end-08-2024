@@ -1,13 +1,25 @@
 import React from 'react';
-import preconfiguredPcs from '../data/preconfigured-pcs.json';
+import { useState } from 'react'
+import preconfiguredPcsDataset from '../data/preconfigured-pcs.json';
 import { getById, getCases, getGpus, getPsus, getCpus, getCoolers, getMotherboards, getRams, getSsds,setSelectedCaseId, setSelectedGpuId, setSelectedPsuId, setSelectedCpuId,
 setSelectedCoolerId, setSelectedMotherboardId, setSelectedRamId, setSelectedSsdId } from '../FlowController';
 import { useNavigate } from 'react-router-dom';
 
 function PreConfiguredPC() {
   let navigate = useNavigate();
+
+  const [preconfiguredPcs, setPreconfiguredPc] = useState(preconfiguredPcsDataset.slice());
   
- 
+  const sortByLowestPrice = () => {
+    preconfiguredPcs.sort((a, b) => calculatePreconfigPrice(a) - calculatePreconfigPrice(b));
+    setPreconfiguredPc(preconfiguredPcs.slice());
+  }
+
+  const sortAZ = () => {
+    preconfiguredPcs.sort((a, b) => a.name.localeCompare(b.name));
+    setPreconfiguredPc(preconfiguredPcs.slice());
+  }
+
   const selectPreconfiguredPC = (preconfiguredPc) => {
 
     setSelectedCaseId(preconfiguredPc.case_id);
@@ -46,7 +58,9 @@ function PreConfiguredPC() {
   return (
 
     <div>
-
+      <button type="button" className="btn btn-info btn-block btn-md" onClick={sortByLowestPrice}>Low to high</button>
+      <button type="button" className="btn btn-info btn-block btn-md" onClick={sortAZ}>A-Z</button>
+      
       <h3 className='preconfig-title'>Preconfigured PCs</h3>
       <div className='preconfigured-card row'>
         {preconfiguredPcs.map((preconfiguredPc, index) =>

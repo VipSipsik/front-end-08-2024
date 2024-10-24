@@ -1,15 +1,17 @@
 import React from 'react';
 import { useState } from 'react'
 import preconfiguredPcsDataset from '../data/preconfigured-pcs.json';
-import { getById, getCases, getGpus, getPsus, getCpus, getCoolers, getMotherboards, getRams, getSsds,setSelectedCaseId, setSelectedGpuId, setSelectedPsuId, setSelectedCpuId,
-setSelectedCoolerId, setSelectedMotherboardId, setSelectedRamId, setSelectedSsdId } from '../FlowController';
+import {
+  getById, getCases, getGpus, getPsus, getCpus, getCoolers, getMotherboards, getRams, getSsds, setSelectedCaseId, setSelectedGpuId, setSelectedPsuId, setSelectedCpuId,
+  setSelectedCoolerId, setSelectedMotherboardId, setSelectedRamId, setSelectedSsdId
+} from '../FlowController';
 import { useNavigate } from 'react-router-dom';
 
 function PreConfiguredPC() {
   let navigate = useNavigate();
 
   const [preconfiguredPcs, setPreconfiguredPc] = useState(preconfiguredPcsDataset.slice());
-  
+
   const sortByLowestPrice = () => {
     preconfiguredPcs.sort((a, b) => calculatePreconfigPrice(a) - calculatePreconfigPrice(b));
     setPreconfiguredPc(preconfiguredPcs.slice());

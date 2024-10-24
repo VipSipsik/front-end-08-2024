@@ -36,10 +36,10 @@ function Cart() {
                   <div className="col-lg-7">
                     {/* <h5 className="mb-3"><a href="#!" className="text-body"><i
                       className="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a></h5> */}
-                    <hr/> 
+                    <hr />
                     <div className="d-flex justify-content-between align-items-center mb-3">
                       <div>
-                        <h6 className="mb-1">Shopping cart</h6>                 
+                        <h6 className="mb-1">Shopping cart</h6>
                       </div>
                     </div>
 
@@ -54,14 +54,14 @@ function Cart() {
                                 </img>
                               </div>
                               <div className="ms-3"></div>
-                              <h6>{pcCase.name}</h6>                              
+                              <h6>{pcCase.name}</h6>
                             </div>
                           </div>
                           <div className="d-flex flex-row align-items-center">
                             <div style={{ width: "400px", margin: "40px" }}>
                               <h6 className="fw-normal mb-0">Product code: {pcCase.product_code}</h6>
-                              <p className="small mb-0">H: {pcCase.height} W: {pcCase.width}</p>  
-                              <p className="small mb-0"> Color: {pcCase.color}</p>  
+                              <p className="small mb-0">H: {pcCase.height} W: {pcCase.width}</p>
+                              <p className="small mb-0"> Color: {pcCase.color}</p>
                             </div>
                             <div style={{ width: "80px" }}>
                               <h6 className="mb-0">{pcCase.price} €</h6>
@@ -84,7 +84,7 @@ function Cart() {
                               </div>
                               <div className="ms-3"></div>
                               <h6>{gpu.name}</h6>
-                             
+
                             </div>
                           </div>
                           <div className="d-flex flex-row align-items-center">
@@ -114,7 +114,7 @@ function Cart() {
                               </div>
                               <div className="ms-3"></div>
                               <h6>{psu.name}</h6>
-                           
+
                             </div>
                           </div>
                           <div className="d-flex flex-row align-items-center">
@@ -144,7 +144,7 @@ function Cart() {
                               </div>
                               <div className="ms-3"></div>
                               <h6>{cpu.name}</h6>
-                         
+
                             </div>
                           </div>
                           <div className="d-flex flex-row align-items-center">
@@ -174,7 +174,7 @@ function Cart() {
                               </div>
                               <div className="ms-3"></div>
                               <h6>{cooler.name}</h6>
-                           
+
                             </div>
                           </div>
                           <div className="d-flex flex-row align-items-center">
@@ -204,7 +204,7 @@ function Cart() {
                               </div>
                               <div className="ms-3"></div>
                               <h6>{motherboard.name}</h6>
-                              
+
                             </div>
                           </div>
                           <div className="d-flex flex-row align-items-center">
@@ -263,7 +263,7 @@ function Cart() {
                               </div>
                               <div className="ms-3"></div>
                               <h6>{ssd.name}</h6>
-                        
+
                             </div>
                           </div>
                           <div className="d-flex flex-row align-items-center">
@@ -326,7 +326,7 @@ function Cart() {
                             </div>
                             <div className="col-md-6">
                               <div className="form-outline form-white">
-                                <input type="password" id="typeText" className="form-control form-control-lg" 
+                                <input type="password" id="typeText" className="form-control form-control-lg"
                                   placeholder="&#9679;&#9679;&#9679;" size="1" minLength="3" maxLength="3" autoComplete="cvc" />
                                 <label className="form-label" htmlFor="typeText">cvc</label>
                               </div>

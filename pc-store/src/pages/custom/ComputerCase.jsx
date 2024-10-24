@@ -11,7 +11,7 @@ function ComputerCase() {
     navigate('/gpu', { replace: true });
     // ToDo: Save case_id in localStorage  
   }
-  
+
   return (
     <div>
       <FlowBar />
